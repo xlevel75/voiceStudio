@@ -25,12 +25,20 @@ export async function GET(request: Request) {
     const byVoiceId = new Map<string, Voice>();
     for (const v of remote) byVoiceId.set(v.voiceId, v);
 
-    // DB 레코드는 내부 id/모드를 갖고 있으므로 우선 적용. 상태는 공급자 쪽이 최신이다.
+    // DB 레코드는 내부 id/모드를 갖고 있으므로 우선 적용.
+    // 이름·상태·상태설명은 공급자 쪽이 최신이므로 그쪽 값을 덮어쓴다.
     for (const r of records) {
       const remoteMatch = byVoiceId.get(r.voiceId);
       byVoiceId.set(r.voiceId, {
         ...recordToVoice(r),
-        ...(remoteMatch ? { name: remoteMatch.name, status: remoteMatch.status } : {}),
+        ...(remoteMatch
+          ? {
+              name: remoteMatch.name,
+              status: remoteMatch.status,
+              statusDetail: remoteMatch.statusDetail,
+              description: remoteMatch.description,
+            }
+          : {}),
         id: r.id,
         mode: r.mode ?? remoteMatch?.mode,
         isOwn: true,

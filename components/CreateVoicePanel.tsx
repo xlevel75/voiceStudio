@@ -69,6 +69,7 @@ function CloneForm({
   const [mode, setMode] = useState<CloneMode>(capabilities.cloneModes[0] ?? "ivc");
   const [name, setName] = useState("");
   const [files, setFiles] = useState<File[]>([]);
+  const [totalSeconds, setTotalSeconds] = useState(0);
   const [consent, setConsent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState<string | null>(null);
@@ -115,6 +116,7 @@ function CloneForm({
       );
       setName("");
       setFiles([]);
+      setTotalSeconds(0);
       setConsent(false);
       if (fileInput.current) fileInput.current.value = "";
       onCreated();
@@ -127,10 +129,13 @@ function CloneForm({
   }
 
   const totalMb = files.reduce((n, f) => n + f.size, 0) / 1024 / 1024;
+  // ElevenLabs PVC 권장 최소 녹음 길이. 이보다 짧으면 학습이 시작되지 않는 일이 잦다.
+  const PVC_MIN_SECONDS = 30 * 60;
+  const tooShortForPvc = mode === "pvc" && totalSeconds > 0 && totalSeconds < PVC_MIN_SECONDS;
 
   return (
     <Panel title="성우 만들기" subtitle="녹음된 음성을 올려 내 목소리로 성우를 만듭니다.">
-      <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* IVC / PVC 토글 */}
         <div className="flex gap-1 rounded-xl border border-ink-700/70 bg-ink-850/60 p-1">
           {capabilities.cloneModes.map((m) => (
@@ -182,12 +187,26 @@ function CloneForm({
             type="file"
             accept="audio/*"
             multiple
-            onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
+            onChange={async (e) => {
+              const picked = Array.from(e.target.files ?? []);
+              setFiles(picked);
+              setTotalSeconds(0);
+              const lengths = await Promise.all(picked.map(audioDuration));
+              setTotalSeconds(lengths.reduce((a, b) => a + b, 0));
+            }}
             className="block w-full cursor-pointer rounded-xl border border-dashed border-ink-600 bg-ink-850/40 px-3 py-3 text-xs text-ink-400 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-ink-700 file:px-3 file:py-1.5 file:text-xs file:text-ink-100 hover:border-ink-500"
           />
           {files.length > 0 ? (
             <p className="mt-1.5 text-[11px] text-ink-400">
               {files.length}개 선택 · 총 {totalMb.toFixed(1)}MB
+              {totalSeconds > 0 ? ` · 길이 ${formatDuration(totalSeconds)}` : ""}
+            </p>
+          ) : null}
+          {tooShortForPvc ? (
+            <p className="mt-2 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[11px] leading-relaxed text-amber-200">
+              PVC는 <b>30분 이상</b>의 녹음을 권장합니다. 지금 길이({formatDuration(totalSeconds)})로는
+              보이스만 만들어지고 <b>학습이 시작되지 않을 수 있습니다.</b> 짧은 샘플이라면 IVC를
+              사용하세요.
             </p>
           ) : null}
         </div>
@@ -217,7 +236,7 @@ function CloneForm({
         <button
           type="submit"
           disabled={!canSubmit}
-          className="mt-auto flex items-center justify-center gap-2 rounded-xl bg-accent-500 px-4 py-2.5 text-sm font-semibold text-white transition enabled:hover:bg-accent-400 disabled:cursor-not-allowed disabled:bg-ink-700 disabled:text-ink-400"
+          className="flex items-center justify-center gap-2 rounded-xl bg-accent-500 px-4 py-2.5 text-sm font-semibold text-white transition enabled:hover:bg-accent-400 disabled:cursor-not-allowed disabled:bg-ink-700 disabled:text-ink-400"
         >
           {busy ? <Spinner /> : null}
           {busy ? (progress ?? "처리 중…") : "만들기"}
@@ -225,4 +244,26 @@ function CloneForm({
       </form>
     </Panel>
   );
+}
+
+/** 오디오 파일의 재생 길이를 초 단위로 읽는다. 실패하면 0(=알 수 없음). */
+async function audioDuration(file: File): Promise<number> {
+  return new Promise((resolve) => {
+    const url = URL.createObjectURL(file);
+    const audio = new Audio();
+    audio.preload = "metadata";
+    const done = (value: number) => {
+      URL.revokeObjectURL(url);
+      resolve(value);
+    };
+    audio.onloadedmetadata = () => done(Number.isFinite(audio.duration) ? audio.duration : 0);
+    audio.onerror = () => done(0);
+    audio.src = url;
+  });
+}
+
+function formatDuration(seconds: number): string {
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds % 60);
+  return m > 0 ? `${m}분 ${s}초` : `${s}초`;
 }

@@ -22,6 +22,8 @@ export interface Voice {
   /** 목록에서 "내 성우"를 상단 고정하기 위한 힌트. 공급자 라이브러리 보이스는 false. */
   isOwn?: boolean;
   description?: string;
+  /** 학습이 멈춰 있거나 진행 중일 때 UI에 보여줄 한 줄 설명. */
+  statusDetail?: string;
 }
 
 export interface CreateVoiceInput {

@@ -53,7 +53,7 @@ export function VoiceList({
         <p className="py-6 text-xs text-ink-400">표시할 성우가 없습니다.</p>
       ) : null}
 
-      <div className="-mr-2 min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">
+      <div className="-mr-2 max-h-[min(60vh,560px)] min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">
         {own.length > 0 ? (
           <Group
             label="내 성우"
@@ -145,7 +145,11 @@ function VoiceRow({
       >
         <span className="min-w-0 flex-1">
           <span className="block truncate text-sm text-ink-100">{voice.name}</span>
-          {voice.description ? (
+          {voice.statusDetail ? (
+            <span className="mt-0.5 block text-[11px] leading-relaxed text-amber-300/90">
+              {voice.statusDetail}
+            </span>
+          ) : voice.description ? (
             <span className="mt-0.5 block truncate text-[11px] text-ink-400">
               {voice.description}
             </span>

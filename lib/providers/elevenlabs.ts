@@ -15,12 +15,35 @@ import {
 /** 사용자가 직접 만들었거나 소유한 보이스로 볼 카테고리. 목록 상단에 고정된다. */
 const OWNED_CATEGORIES = new Set(["cloned", "professional", "generated"]);
 
-function toStatus(fineTuning: { state?: Record<string, string> } | undefined): VoiceStatus {
+type FineTuning = { state?: Record<string, string>; isAllowedToFineTune?: boolean };
+
+/**
+ * 파인튜닝 상태를 UI 상태로 옮긴다.
+ *
+ * 주의: state가 비어 있다는 건 "학습 이력이 없다"는 뜻일 뿐 "사용 가능"이 아니다.
+ * IVC/프리셋은 애초에 학습이 없으므로 ready지만, PVC(professional)에서 state가
+ * 비어 있으면 학습이 아직 시작되지 않은 것이므로 ready로 보면 안 된다.
+ * (샘플 길이 부족·플랜 미달이면 여기서 영영 진행되지 않는다.)
+ */
+function toStatus(fineTuning: FineTuning | undefined, isPvc: boolean): VoiceStatus {
   const states = Object.values(fineTuning?.state ?? {});
-  if (states.length === 0) return "ready"; // IVC/프리셋은 파인튜닝 상태가 없다
   if (states.some((s) => s === "failed")) return "failed";
   if (states.some((s) => s === "fine_tuned")) return "ready";
-  return "training"; // not_started | queued | fine_tuning | delayed
+  if (states.length > 0) return "training"; // not_started | queued | fine_tuning | delayed
+  return isPvc ? "training" : "ready";
+}
+
+/** 학습이 왜 멈춰 있는지 UI에 한 줄로 설명해 준다. */
+function statusDetail(fineTuning: FineTuning | undefined, isPvc: boolean): string | undefined {
+  if (!isPvc) return undefined;
+  const states = Object.values(fineTuning?.state ?? {});
+  if (states.some((s) => s === "fine_tuned")) return undefined;
+  if (states.some((s) => s === "failed")) return "학습에 실패했습니다.";
+  if (states.length > 0) return "학습이 진행 중입니다. 완료까지 수 시간이 걸립니다.";
+  if (fineTuning?.isAllowedToFineTune === false) {
+    return "학습이 시작되지 않았습니다. 샘플 길이(PVC는 30분 이상 권장)와 플랜(Creator 이상)을 확인하세요.";
+  }
+  return "학습 시작을 기다리고 있습니다.";
 }
 
 export class ElevenLabsProvider implements VoiceProvider {
@@ -46,19 +69,22 @@ export class ElevenLabsProvider implements VoiceProvider {
       return (res.voices ?? []).map((v) => {
         const category = v.category ?? "premade";
         const isOwn = OWNED_CATEGORIES.has(category);
+        const isPvc = category === "professional";
+        const fineTuning = v.fineTuning as FineTuning | undefined;
         return {
           id: `elevenlabs:${v.voiceId}`,
           provider: "elevenlabs" as const,
           voiceId: v.voiceId,
           name: v.name ?? v.voiceId,
           mode: category === "professional" ? ("pvc" as const) : category === "cloned" ? ("ivc" as const) : undefined,
-          status: toStatus(v.fineTuning as { state?: Record<string, string> } | undefined),
+          status: toStatus(fineTuning, isPvc),
           isPreset: !isOwn,
           createdAt: v.createdAtUnix
             ? new Date(v.createdAtUnix * 1000).toISOString()
             : new Date(0).toISOString(),
           isOwn,
           description: v.description ?? undefined,
+          statusDetail: statusDetail(fineTuning, isPvc),
         };
       });
     } catch (err) {
@@ -117,7 +143,7 @@ export class ElevenLabsProvider implements VoiceProvider {
   async getVoiceStatus(voiceId: string): Promise<VoiceStatus> {
     try {
       const v = await this.client.voices.get(voiceId);
-      return toStatus(v.fineTuning as { state?: Record<string, string> } | undefined);
+      return toStatus(v.fineTuning as FineTuning | undefined, v.category === "professional");
     } catch (err) {
       throw wrap(err, "성우 상태를 확인하지 못했습니다.");
     }

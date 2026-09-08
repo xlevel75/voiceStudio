@@ -146,7 +146,8 @@ export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
         </div>
       </header>
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      {/* items-start: 성우 목록이 길어도 만들기 패널이 따라 늘어나지 않는다 */}
+      <div className="grid items-start gap-5 lg:grid-cols-2">
         <VoiceList
           provider={provider}
           voices={voices}
