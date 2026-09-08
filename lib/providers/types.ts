@@ -24,6 +24,12 @@ export interface Voice {
   description?: string;
   /** 학습이 멈춰 있거나 진행 중일 때 UI에 보여줄 한 줄 설명. */
   statusDetail?: string;
+  /**
+   * 삭제 버튼을 노출할지. 내가 만든 성우 중 "잘못 만들어진" 것만 true다.
+   * (학습이 시작조차 안 된 PVC 껍데기, 학습에 실패한 성우)
+   * 정상 동작하는 성우와 남의 라이브러리 보이스는 false.
+   */
+  deletable?: boolean;
 }
 
 export interface CreateVoiceInput {
@@ -53,6 +59,7 @@ export interface VoiceProvider {
   listVoices(): Promise<Voice[]>;
   createVoice?(input: CreateVoiceInput): Promise<Voice>; // 능력 없으면 미구현
   getVoiceStatus?(voiceId: string): Promise<VoiceStatus>; // PVC 폴링용
+  deleteVoice?(voiceId: string): Promise<void>; // 잘못 만들어진 성우 정리용
   synthesize(input: SynthesizeInput): Promise<SynthesizeResult>;
 }
 

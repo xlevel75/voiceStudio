@@ -19,6 +19,8 @@ export function VoiceList({
   isLoading,
   error,
   isTrainingPolling,
+  onDelete,
+  deletingId,
 }: {
   provider: ProviderId;
   voices: Voice[];
@@ -27,6 +29,8 @@ export function VoiceList({
   isLoading: boolean;
   error: string | null;
   isTrainingPolling: boolean;
+  onDelete: (voice: Voice) => void;
+  deletingId: string | null;
 }) {
   const own = voices.filter((v) => v.isOwn);
   const presets = voices.filter((v) => !v.isOwn);
@@ -71,6 +75,8 @@ export function VoiceList({
                 voice={v}
                 selected={v.voiceId === selectedVoiceId}
                 onSelect={onSelect}
+                onDelete={onDelete}
+                deleting={deletingId === v.id}
               />
             ))}
           </Group>
@@ -119,28 +125,39 @@ function VoiceRow({
   voice,
   selected,
   onSelect,
+  onDelete,
+  deleting = false,
 }: {
   voice: Voice;
   selected: boolean;
   onSelect: (voice: Voice) => void;
+  onDelete?: (voice: Voice) => void;
+  deleting?: boolean;
 }) {
   // 학습 중이거나 실패한 성우는 선택할 수 없다.
   const disabled = voice.status !== "ready";
   const badge = STATUS_BADGE[voice.status];
+  // 삭제 버튼은 "잘못 만들어진 내 성우"에만 붙는다. 정상 성우/라이브러리에는 없다.
+  const showDelete = !!onDelete && voice.deletable === true;
 
   return (
-    <li>
+    <li
+      className={[
+        "flex items-center gap-1 rounded-xl border transition",
+        disabled
+          ? "border-ink-700/50 bg-ink-850/40"
+          : selected
+            ? "border-accent-500/70 bg-accent-500/15 shadow-[0_0_0_1px_rgba(109,92,255,0.35)]"
+            : "border-ink-700/60 bg-ink-850/40 hover:border-ink-600 hover:bg-ink-800/60",
+      ].join(" ")}
+    >
       <button
         type="button"
         disabled={disabled}
         onClick={() => onSelect(voice)}
         className={[
-          "flex w-full items-center gap-2 rounded-xl border px-3 py-2.5 text-left transition",
-          disabled
-            ? "cursor-not-allowed border-ink-700/50 bg-ink-850/40 opacity-60"
-            : selected
-              ? "border-accent-500/70 bg-accent-500/15 shadow-[0_0_0_1px_rgba(109,92,255,0.35)]"
-              : "border-ink-700/60 bg-ink-850/40 hover:border-ink-600 hover:bg-ink-800/60",
+          "flex min-w-0 flex-1 items-center gap-2 px-3 py-2.5 text-left",
+          disabled ? "cursor-not-allowed opacity-60" : "",
         ].join(" ")}
       >
         <span className="min-w-0 flex-1">
@@ -158,6 +175,33 @@ function VoiceRow({
         {voice.mode ? <Badge tone="accent">{MODE_LABEL[voice.mode] ?? voice.mode}</Badge> : null}
         {voice.status !== "ready" ? <Badge tone={badge.tone}>{badge.label}</Badge> : null}
       </button>
+
+      {showDelete ? (
+        <button
+          type="button"
+          disabled={deleting}
+          onClick={() => onDelete(voice)}
+          title="잘못 만들어진 성우 삭제"
+          aria-label={`${voice.name} 삭제`}
+          className="mr-2 shrink-0 rounded-lg border border-rose-500/30 px-2 py-1.5 text-rose-300 transition hover:border-rose-500/60 hover:bg-rose-500/10 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {deleting ? <Spinner className="h-3.5 w-3.5" /> : <TrashIcon />}
+        </button>
+      ) : null}
     </li>
+  );
+}
+
+function TrashIcon() {
+  return (
+    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

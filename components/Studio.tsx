@@ -6,7 +6,7 @@ import type { BlobAccess } from "@/lib/blob";
 import { CAPABILITIES, PROVIDER_IDS, PROVIDER_LABELS } from "@/lib/providers/capabilities";
 import type { ProviderId, Voice } from "@/lib/providers/types";
 import { CreateVoicePanel } from "./CreateVoicePanel";
-import { fetchVoices, synthesize, type SynthesisResult } from "./client-api";
+import { deleteVoice, fetchVoices, synthesize, type SynthesisResult } from "./client-api";
 import { TtsBar, type ClovaOptions } from "./TtsBar";
 import { VoiceList } from "./VoiceList";
 
@@ -29,6 +29,7 @@ export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
   const [clovaOptions, setClovaOptions] = useState<ClovaOptions>({ speed: 0, pitch: 0 });
 
   const [result, setResult] = useState<Result | null>(null);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const lastObjectUrl = useRef<string | null>(null);
 
   const capabilities = CAPABILITIES[provider];
@@ -92,6 +93,33 @@ export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
     },
   });
 
+  const deleteMutation = useMutation({
+    mutationFn: (voice: Voice) => deleteVoice(voice.id),
+    onMutate: () => setDeleteError(null),
+    onSuccess: (_data, voice) => {
+      // 지운 성우가 선택돼 있었으면 선택을 비운다.
+      setSelectedByProvider((prev) =>
+        prev[voice.provider] === voice.voiceId ? { ...prev, [voice.provider]: undefined } : prev,
+      );
+      queryClient.invalidateQueries({ queryKey: ["voices", voice.provider] });
+    },
+    onError: (err) =>
+      setDeleteError(err instanceof Error ? err.message : "성우 삭제에 실패했습니다."),
+  });
+
+  function handleDelete(voice: Voice) {
+    const reason = voice.statusDetail ? `
+
+사유: ${voice.statusDetail}` : "";
+    const ok = window.confirm(
+      `"${voice.name}" 성우를 삭제할까요?${reason}
+
+` +
+        "ElevenLabs 계정에서 영구적으로 삭제되며 되돌릴 수 없습니다.",
+    );
+    if (ok) deleteMutation.mutate(voice);
+  }
+
   function handleProviderChange(next: ProviderId) {
     setProvider(next);
     // 공급자가 바뀌면 이전 결과는 의미가 없다. 텍스트는 그대로 둔다.
@@ -154,8 +182,10 @@ export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
           selectedVoiceId={selectedVoiceId}
           onSelect={handleSelect}
           isLoading={voicesQuery.isPending}
-          error={voicesError}
+          error={voicesError ?? deleteError}
           isTrainingPolling={isTrainingPolling}
+          onDelete={handleDelete}
+          deletingId={deleteMutation.isPending ? (deleteMutation.variables?.id ?? null) : null}
         />
         <CreateVoicePanel
           provider={provider}

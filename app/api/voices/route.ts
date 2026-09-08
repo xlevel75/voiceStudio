@@ -37,6 +37,7 @@ export async function GET(request: Request) {
               status: remoteMatch.status,
               statusDetail: remoteMatch.statusDetail,
               description: remoteMatch.description,
+              deletable: remoteMatch.deletable,
             }
           : {}),
         id: r.id,

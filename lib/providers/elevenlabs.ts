@@ -44,6 +44,20 @@ function toStatus(fineTuning: FineTuning | undefined, isOwnPvc: boolean): VoiceS
   return "training"; // not_started | queued | fine_tuning | delayed
 }
 
+/**
+ * "잘못 만들어진 성우"인가 — 삭제 버튼을 띄울 대상.
+ * 내가 만든 것 중에서 (1) 학습에 실패했거나 (2) PVC인데 학습이 시작조차 되지 않아
+ * 슬롯만 차지하는 껍데기인 경우다.
+ * 정상 동작하는 성우와 진짜로 학습 중인 성우는 여기 해당하지 않는다.
+ */
+function isBroken(fineTuning: FineTuning | undefined, isOwn: boolean, category: string): boolean {
+  if (!isOwn) return false;
+  const isOwnPvc = category === "professional";
+  if (toStatus(fineTuning, isOwnPvc) === "failed") return true;
+  const notStarted = Object.keys(fineTuning?.state ?? {}).length === 0;
+  return isOwnPvc && notStarted && fineTuning?.isAllowedToFineTune === false;
+}
+
 /** 내가 만든 PVC가 왜 멈춰 있는지 목록에 한 줄로 설명해 준다. */
 function statusDetail(fineTuning: FineTuning | undefined, isOwnPvc: boolean): string | undefined {
   if (!isOwnPvc) return undefined;
@@ -106,6 +120,7 @@ export class ElevenLabsProvider implements VoiceProvider {
           isOwn,
           description: v.description ?? undefined,
           statusDetail: statusDetail(fineTuning, isOwnPvc),
+          deletable: isBroken(fineTuning, isOwn, category),
         };
       });
     } catch (err) {
@@ -234,6 +249,43 @@ export class ElevenLabsProvider implements VoiceProvider {
             ? ` 생성 중이던 성우(${createdVoiceId})를 자동 삭제하지 못했습니다. ElevenLabs에서 직접 삭제하세요.`
             : "";
       throw new ProviderError(base.message + suffix, base.status, "elevenlabs");
+    }
+  }
+
+  /**
+   * 잘못 만들어진 성우만 삭제한다.
+   * 클라이언트가 보낸 값을 믿지 않고 공급자 API로 자격을 다시 확인한다.
+   */
+  async deleteVoice(voiceId: string): Promise<void> {
+    let voice;
+    try {
+      voice = await this.client.voices.get(voiceId);
+    } catch (err) {
+      throw wrap(err, "삭제할 성우를 찾지 못했습니다.");
+    }
+
+    const category = voice.category ?? "premade";
+    const isOwn = voice.isOwner ?? (category === "cloned" || category === "generated");
+    if (!isOwn) {
+      throw new ProviderError(
+        "내가 만든 성우만 삭제할 수 있습니다. 라이브러리 보이스는 대상이 아닙니다.",
+        403,
+        "elevenlabs",
+      );
+    }
+    if (!isBroken(voice.fineTuning as FineTuning | undefined, isOwn, category)) {
+      throw new ProviderError(
+        "정상 동작하거나 학습이 진행 중인 성우는 여기서 삭제할 수 없습니다. " +
+          "ElevenLabs 대시보드에서 직접 삭제하세요.",
+        400,
+        "elevenlabs",
+      );
+    }
+
+    try {
+      await this.client.voices.delete(voiceId);
+    } catch (err) {
+      throw wrap(err, "성우 삭제에 실패했습니다.");
     }
   }
 

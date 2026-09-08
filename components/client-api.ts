@@ -43,6 +43,11 @@ export async function fetchVoiceStatus(id: string): Promise<{ status: Voice["sta
   return res.json();
 }
 
+export async function deleteVoice(id: string): Promise<void> {
+  const res = await fetch(`/api/voices/${encodeURIComponent(id)}`, { method: "DELETE" });
+  if (!res.ok) throw new Error(await readError(res));
+}
+
 export interface SynthesisResult {
   blob: Blob;
   url: string;
