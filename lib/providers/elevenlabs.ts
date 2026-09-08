@@ -253,27 +253,34 @@ export class ElevenLabsProvider implements VoiceProvider {
   }
 
   /**
+   * voiceId로 성우 하나를 찾는다.
+   *
+   * 반드시 listVoices()(=voices.getAll())를 거친다. 단건 조회 voices.get()은
+   * isOwner를 돌려주지 않아서, 그걸로 소유 판정을 하면 내가 만든 성우도
+   * "남의 보이스"로 잘못 판단된다.
+   */
+  private async findVoice(voiceId: string): Promise<Voice | undefined> {
+    const voices = await this.listVoices();
+    return voices.find((v) => v.voiceId === voiceId);
+  }
+
+  /**
    * 잘못 만들어진 성우만 삭제한다.
-   * 클라이언트가 보낸 값을 믿지 않고 공급자 API로 자격을 다시 확인한다.
+   * 클라이언트가 보낸 값을 믿지 않고, 목록 조회 결과로 자격을 다시 확인한다.
    */
   async deleteVoice(voiceId: string): Promise<void> {
-    let voice;
-    try {
-      voice = await this.client.voices.get(voiceId);
-    } catch (err) {
-      throw wrap(err, "삭제할 성우를 찾지 못했습니다.");
+    const target = await this.findVoice(voiceId);
+    if (!target) {
+      throw new ProviderError("삭제할 성우를 찾지 못했습니다.", 404, "elevenlabs");
     }
-
-    const category = voice.category ?? "premade";
-    const isOwn = voice.isOwner ?? (category === "cloned" || category === "generated");
-    if (!isOwn) {
+    if (!target.isOwn) {
       throw new ProviderError(
         "내가 만든 성우만 삭제할 수 있습니다. 라이브러리 보이스는 대상이 아닙니다.",
         403,
         "elevenlabs",
       );
     }
-    if (!isBroken(voice.fineTuning as FineTuning | undefined, isOwn, category)) {
+    if (!target.deletable) {
       throw new ProviderError(
         "정상 동작하거나 학습이 진행 중인 성우는 여기서 삭제할 수 없습니다. " +
           "ElevenLabs 대시보드에서 직접 삭제하세요.",
@@ -302,9 +309,12 @@ export class ElevenLabsProvider implements VoiceProvider {
 
   async getVoiceStatus(voiceId: string): Promise<VoiceStatus> {
     try {
-      const v = await this.client.voices.get(voiceId);
-      const isOwnPvc = (v.isOwner ?? false) && v.category === "professional";
-      return toStatus(v.fineTuning as FineTuning | undefined, isOwnPvc);
+      // voices.get()은 isOwner를 주지 않아 PVC 여부를 오판한다. 목록 기준으로 본다.
+      const target = await this.findVoice(voiceId);
+      if (!target) {
+        throw new ProviderError("성우를 찾지 못했습니다.", 404, "elevenlabs");
+      }
+      return target.status;
     } catch (err) {
       throw wrap(err, "성우 상태를 확인하지 못했습니다.");
     }
