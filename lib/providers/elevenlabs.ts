@@ -1,4 +1,5 @@
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { readBlobAsUpload } from "@/lib/blob";
 import { concatBuffers, splitText, streamToArrayBuffer } from "@/lib/text";
 import { ELEVENLABS_CAPABILITIES } from "./capabilities";
 import {
@@ -73,7 +74,8 @@ export class ElevenLabsProvider implements VoiceProvider {
       throw new ProviderError("오디오 파일이 최소 1개 필요합니다.", 400, "elevenlabs");
     }
 
-    const files = await Promise.all(input.audioUrls.map(fetchUploadable));
+    // private 스토어는 URL 직접 fetch가 막혀 있어 Blob SDK로 인증해 읽는다.
+    const files = await Promise.all(input.audioUrls.map(readBlobAsUpload));
 
     try {
       if (input.mode === "ivc") {
@@ -142,17 +144,6 @@ export class ElevenLabsProvider implements VoiceProvider {
       throw wrap(err, "음성 변환에 실패했습니다.");
     }
   }
-}
-
-/** Blob URL의 오디오를 SDK가 받는 업로드 형태로 변환. */
-async function fetchUploadable(url: string) {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new ProviderError(`업로드된 오디오를 읽지 못했습니다 (${res.status})`, 400, "elevenlabs");
-  }
-  const data = await res.blob();
-  const filename = decodeURIComponent(new URL(url).pathname.split("/").pop() || "sample.mp3");
-  return { data, filename, contentType: data.type || "audio/mpeg" };
 }
 
 function wrap(err: unknown, fallback: string): ProviderError {

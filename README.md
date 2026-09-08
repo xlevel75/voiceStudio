@@ -26,6 +26,7 @@ npm run dev
 | `ELEVENLABS_API_KEY` | ElevenLabs 목록/생성/TTS | 해당 탭에서 503 + 안내 메시지 |
 | `CLOVA_CLIENT_ID` / `CLOVA_CLIENT_SECRET` | CLOVA TTS | 프리셋 목록은 보이고, 변환 시 503 |
 | `BLOB_READ_WRITE_TOKEN` | 성우 만들기(오디오 업로드) | 업로드 시 503 + 안내 메시지 |
+| `BLOB_ACCESS` | Blob 스토어가 public일 때만 | 비우면 `private` (신규 스토어 기본값) |
 | `DATABASE_URL` | 내 성우 목록 영속화 | **로컬 JSON 폴백** (`data/voices.json`) |
 
 > 전부 서버사이드 전용이다. `NEXT_PUBLIC_` 접두사를 절대 붙이지 말 것.
@@ -90,10 +91,24 @@ CLOVA 경로는 서버가 응답 헤더 `X-Downloadable: 0`을 내려보내고, 
 
 1. 프로젝트를 Vercel에 연결 (Next.js 자동 감지).
 2. **Storage → Blob** 스토어 생성 → `BLOB_READ_WRITE_TOKEN` 자동 주입.
+   스토어를 public으로 만들었다면 `BLOB_ACCESS=public`도 함께 설정한다.
 3. **Storage → Postgres**(또는 Supabase) 연결 → `DATABASE_URL` 설정.
    서버리스 파일시스템은 읽기 전용이라 JSON 폴백은 로컬 개발 전용이다.
 4. `ELEVENLABS_API_KEY`, `CLOVA_CLIENT_ID`, `CLOVA_CLIENT_SECRET`를 환경 변수에 추가.
 5. `voices` 테이블은 첫 요청 시 자동 생성된다 (`CREATE TABLE IF NOT EXISTS`).
+
+### Blob 스토어 접근 모드
+
+`BLOB_ACCESS`는 **스토어의 실제 설정과 일치해야 한다.** 불일치하면 업로드가
+`Cannot use public access on a private store` 로 거부된다.
+
+- **private** (신규 스토어 기본값): 업로드 URL을 그냥 `fetch`할 수 없다(403).
+  서버는 `lib/blob.ts`의 `readBlobAsUpload()`가 Blob SDK `get()`으로 인증해 읽고,
+  스트림 그대로 ElevenLabs에 넘긴다(큰 PVC 샘플을 메모리에 통째로 올리지 않는다).
+- **public**: 같은 함수가 평범한 `fetch`로 읽는다.
+
+이 값은 서버 컴포넌트(`app/page.tsx`)에서 읽어 `Studio → CreateVoicePanel`로 내려가
+클라이언트 `upload()`의 `access` 인자로 쓰인다. 비밀값이 아니라 추가 왕복 없이 초기 렌더에 실린다.
 
 오디오는 브라우저 → Blob으로 직접 올라가므로 함수 본문 4.5MB 제한에 걸리지 않는다.
 `app/api/tts/route.ts`의 `maxDuration = 60`은 플랜별 상한이 다르므로 배포 전 확인할 것.

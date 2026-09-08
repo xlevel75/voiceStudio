@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { BlobAccess } from "@/lib/blob";
 import { CAPABILITIES, PROVIDER_IDS, PROVIDER_LABELS } from "@/lib/providers/capabilities";
 import type { ProviderId, Voice } from "@/lib/providers/types";
 import { CreateVoicePanel } from "./CreateVoicePanel";
@@ -13,7 +14,7 @@ type Result = SynthesisResult & { voiceName: string; fileName: string };
 
 const POLL_INTERVAL_MS = 20_000;
 
-export function Studio() {
+export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
   const queryClient = useQueryClient();
   const [provider, setProvider] = useState<ProviderId>("elevenlabs");
 
@@ -158,6 +159,7 @@ export function Studio() {
         <CreateVoicePanel
           provider={provider}
           capabilities={capabilities}
+          blobAccess={blobAccess}
           onCreated={() => queryClient.invalidateQueries({ queryKey: ["voices", provider] })}
         />
       </div>

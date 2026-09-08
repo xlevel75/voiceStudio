@@ -2,6 +2,7 @@
 
 import { upload } from "@vercel/blob/client";
 import { useRef, useState } from "react";
+import type { BlobAccess } from "@/lib/blob";
 import type { Capabilities, CloneMode, ProviderId } from "@/lib/providers/types";
 import { createVoice } from "./client-api";
 import { ErrorNote, InfoNote, Panel, Spinner } from "./ui";
@@ -9,10 +10,12 @@ import { ErrorNote, InfoNote, Panel, Spinner } from "./ui";
 export function CreateVoicePanel({
   provider,
   capabilities,
+  blobAccess,
   onCreated,
 }: {
   provider: ProviderId;
   capabilities: Capabilities;
+  blobAccess: BlobAccess;
   onCreated: () => void;
 }) {
   if (!capabilities.canCreateVoice) {
@@ -42,16 +45,25 @@ export function CreateVoicePanel({
     );
   }
 
-  return <CloneForm provider={provider} capabilities={capabilities} onCreated={onCreated} />;
+  return (
+    <CloneForm
+      provider={provider}
+      capabilities={capabilities}
+      blobAccess={blobAccess}
+      onCreated={onCreated}
+    />
+  );
 }
 
 function CloneForm({
   provider,
   capabilities,
+  blobAccess,
   onCreated,
 }: {
   provider: ProviderId;
   capabilities: Capabilities;
+  blobAccess: BlobAccess;
   onCreated: () => void;
 }) {
   const [mode, setMode] = useState<CloneMode>(capabilities.cloneModes[0] ?? "ivc");
@@ -78,8 +90,9 @@ function CloneForm({
       const audioUrls: string[] = [];
       for (const [i, file] of files.entries()) {
         setProgress(`오디오 업로드 중… (${i + 1}/${files.length}) ${file.name}`);
+        // access 는 스토어 설정과 일치해야 한다. 불일치 시 업로드가 거부된다.
         const blob = await upload(`voice-samples/${Date.now()}-${file.name}`, file, {
-          access: "public",
+          access: blobAccess,
           handleUploadUrl: "/api/upload",
           contentType: file.type || "audio/mpeg",
         });
