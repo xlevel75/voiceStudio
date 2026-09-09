@@ -1,4 +1,5 @@
 import { concatBuffers, splitText } from "@/lib/text";
+import { missingEnvMessage } from "@/lib/env";
 import { CLOVA_CAPABILITIES } from "./capabilities";
 import { CLOVA_SPEAKERS } from "./clova-speakers";
 import {
@@ -23,7 +24,7 @@ export class ClovaProvider implements VoiceProvider {
   private requireKeys() {
     if (!this.clientId || !this.clientSecret) {
       throw new ProviderError(
-        "CLOVA_CLIENT_ID / CLOVA_CLIENT_SECRET가 설정되지 않았습니다.",
+        missingEnvMessage("CLOVA_CLIENT_ID", "CLOVA_CLIENT_SECRET"),
         503,
         "clova",
       );

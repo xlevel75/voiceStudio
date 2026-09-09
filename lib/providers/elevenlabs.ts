@@ -1,5 +1,6 @@
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 import { readBlobAsUpload } from "@/lib/blob";
+import { missingEnvMessage } from "@/lib/env";
 import { concatBuffers, splitText, streamToArrayBuffer } from "@/lib/text";
 import { ELEVENLABS_CAPABILITIES } from "./capabilities";
 import {
@@ -79,11 +80,7 @@ export class ElevenLabsProvider implements VoiceProvider {
   constructor(apiKey?: string) {
     const key = apiKey ?? process.env.ELEVENLABS_API_KEY;
     if (!key) {
-      throw new ProviderError(
-        "ELEVENLABS_API_KEY가 설정되지 않았습니다. .env.local에 키를 넣어주세요.",
-        503,
-        "elevenlabs",
-      );
+      throw new ProviderError(missingEnvMessage("ELEVENLABS_API_KEY"), 503, "elevenlabs");
     }
     this.client = new ElevenLabsClient({ apiKey: key });
   }

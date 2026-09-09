@@ -1,6 +1,7 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
 import { errorResponse } from "@/lib/api";
+import { missingEnvMessage } from "@/lib/env";
 
 export const runtime = "nodejs";
 
@@ -13,7 +14,11 @@ export async function POST(request: Request) {
   try {
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
       return NextResponse.json(
-        { error: "BLOB_READ_WRITE_TOKEN이 설정되지 않았습니다. Vercel Blob 스토어를 연결해주세요." },
+        {
+          error:
+            missingEnvMessage("BLOB_READ_WRITE_TOKEN") +
+            " (Storage → Blob 스토어를 프로젝트에 Connect하면 자동으로 주입됩니다.)",
+        },
         { status: 503 },
       );
     }
