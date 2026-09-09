@@ -89,13 +89,64 @@ CLOVA 경로는 서버가 응답 헤더 `X-Downloadable: 0`을 내려보내고, 
 
 ## Vercel 배포
 
-1. 프로젝트를 Vercel에 연결 (Next.js 자동 감지).
-2. **Storage → Blob** 스토어 생성 → `BLOB_READ_WRITE_TOKEN` 자동 주입.
-   스토어를 public으로 만들었다면 `BLOB_ACCESS=public`도 함께 설정한다.
-3. **Storage → Postgres**(또는 Supabase) 연결 → `DATABASE_URL` 설정.
-   서버리스 파일시스템은 읽기 전용이라 JSON 폴백은 로컬 개발 전용이다.
-4. `ELEVENLABS_API_KEY`, `CLOVA_CLIENT_ID`, `CLOVA_CLIENT_SECRET`를 환경 변수에 추가.
-5. `voices` 테이블은 첫 요청 시 자동 생성된다 (`CREATE TABLE IF NOT EXISTS`).
+### 1. 프로젝트 연결
+
+Vercel 대시보드 → **Add New → Project** → GitHub의 `xlevel75/voiceStudio` 임포트.
+Next.js가 자동 감지되므로 빌드 설정은 건드릴 필요 없다.
+
+CLI를 쓴다면:
+
+```bash
+npm i -g vercel
+vercel link      # 프로젝트 연결
+vercel           # 프리뷰 배포
+vercel --prod    # 프로덕션 배포
+```
+
+### 2. 환경 변수 등록
+
+**Settings → Environment Variables** 에서 Production/Preview 양쪽에 넣는다.
+
+| 변수 | 필수 | 없으면 |
+|---|---|---|
+| `ELEVENLABS_API_KEY` | ✅ | ElevenLabs 탭 전체가 503 |
+| `BLOB_READ_WRITE_TOKEN` | 성우 만들기에 필수 | 업로드 503 |
+| `BLOB_ACCESS` | 스토어가 public일 때만 | 기본 `private` |
+| `DATABASE_URL` | 사실상 필수 | 아래 참고 |
+| `CLOVA_CLIENT_ID` / `CLOVA_CLIENT_SECRET` | CLOVA 쓸 때 | CLOVA 변환만 503 |
+
+`NEXT_PUBLIC_` 접두사를 붙이면 브라우저로 새어 나간다. 절대 붙이지 말 것.
+
+**ElevenLabs 키 스코프**: 최소 Voices(읽기/쓰기)와 Text to Speech가 필요하다.
+PVC 슬롯 사전 점검까지 동작시키려면 **User(읽기)** 도 열어야 한다.
+없어도 앱은 동작하고 사전 점검만 조용히 생략된다.
+
+### 3. 스토리지 연결
+
+- **Storage → Blob** 스토어 생성 후 프로젝트에 Connect → `BLOB_READ_WRITE_TOKEN` 자동 주입.
+  스토어를 public으로 만들었다면 `BLOB_ACCESS=public`도 함께 넣는다.
+- **Storage → Postgres**(또는 Supabase) 연결 → `DATABASE_URL` 설정.
+  `voices` 테이블은 첫 요청 때 `CREATE TABLE IF NOT EXISTS`로 자동 생성된다.
+
+> `DATABASE_URL` 없이도 앱은 뜬다. 서버리스 파일시스템이 읽기 전용이라
+> JSON 폴백이 동작하지 않을 뿐이고, DB 오류는 전부 삼켜서 공급자 API 결과만으로
+> 목록을 그린다. 다만 내부 id와 복제 모드가 저장되지 않아 PVC 폴링이 부정확해진다.
+> 배포 환경에서는 연결하는 것을 권한다. (누락 시 함수 로그에 경고가 찍힌다.)
+
+### 4. 배포 후 확인
+
+1. `/` 접속 → ElevenLabs 탭에 성우 목록이 뜨는가
+2. 짧은 문장 TTS 변환 → 재생 + 다운로드
+3. CLOVA 탭 → 프리셋 목록이 뜨고, 변환 시 재생만 되고 다운로드 버튼이 없는가
+4. 성우 만들기 → 오디오 업로드가 Blob으로 올라가는가
+
+### 리전과 함수 제한
+
+`vercel.json`에서 리전을 **`icn1`(서울)** 로 고정했다. CLOVA API가 국내에 있고
+사용자도 국내이므로 왕복 지연이 줄어든다.
+
+`/api/tts`와 `/api/voices`는 `maxDuration = 60`을 선언한다. 플랜별 상한이 다르므로
+배포가 거부되면 이 값을 낮춘다.
 
 ### Blob 스토어 접근 모드
 

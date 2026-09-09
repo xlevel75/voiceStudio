@@ -7,6 +7,9 @@ import { ProviderError, type CloneMode, type Voice } from "@/lib/providers/types
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+// 성우 생성은 오디오 샘플 업로드를 포함해 오래 걸린다.
+// 플랜별 상한이 다르므로 배포가 거부되면 이 값을 낮출 것.
+export const maxDuration = 60;
 
 /** GET /api/voices?provider= — 공급자 API 결과와 DB에 저장된 내 성우를 병합한다. */
 export async function GET(request: Request) {
