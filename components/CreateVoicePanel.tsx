@@ -7,6 +7,28 @@ import type { Capabilities, CloneMode, ProviderId } from "@/lib/providers/types"
 import { createVoice } from "./client-api";
 import { ErrorNote, InfoNote, Panel, Spinner } from "./ui";
 
+/**
+ * `upload()`는 /api/upload가 비-2xx를 주면 서버가 보낸 본문을 버리고
+ * "Failed to retrieve the client token" 한 줄로 덮어쓴다.
+ * 원인을 알 수 없게 되므로 같은 라우트에 한 번 더 물어 실제 메시지를 되살린다.
+ */
+async function describeUploadFailure(err: unknown): Promise<string> {
+  const fallback = err instanceof Error ? err.message : "오디오 업로드에 실패했습니다.";
+  if (!/client token/i.test(fallback)) return fallback;
+  try {
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ type: "blob.generate-client-token", payload: {} }),
+    });
+    const data = (await res.json()) as { error?: string };
+    if (data?.error) return data.error;
+  } catch {
+    // 네트워크 자체가 실패하면 원문을 그대로 보여준다.
+  }
+  return fallback;
+}
+
 export function CreateVoicePanel({
   provider,
   capabilities,
@@ -92,11 +114,16 @@ function CloneForm({
       for (const [i, file] of files.entries()) {
         setProgress(`오디오 업로드 중… (${i + 1}/${files.length}) ${file.name}`);
         // access 는 스토어 설정과 일치해야 한다. 불일치 시 업로드가 거부된다.
-        const blob = await upload(`voice-samples/${Date.now()}-${file.name}`, file, {
-          access: blobAccess,
-          handleUploadUrl: "/api/upload",
-          contentType: file.type || "audio/mpeg",
-        });
+        let blob;
+        try {
+          blob = await upload(`voice-samples/${Date.now()}-${file.name}`, file, {
+            access: blobAccess,
+            handleUploadUrl: "/api/upload",
+            contentType: file.type || "audio/mpeg",
+          });
+        } catch (err) {
+          throw new Error(await describeUploadFailure(err));
+        }
         audioUrls.push(blob.url);
       }
 
