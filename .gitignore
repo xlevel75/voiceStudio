@@ -32,11 +32,9 @@ next-env.d.ts
 # 배포 도구
 .vercel
 
-# 로컬 JSON 폴백 스토어 (DATABASE_URL 미설정 시 생성)
-/data/*.json
-
-# 뉴스 팟캐스트 주제 저장 파일 (개인 작업물)
-/data/podcasts/
+# data/ (성우 목록 JSON, 뉴스 팟캐스트 주제 JSON·이미지)는 함께 커밋한다.
+# 주제를 저장할 때 잠깐 생기는 임시 파일만 뺀다.
+/data/podcasts/*.tmp
 
 # 로그
 npm-debug.log*

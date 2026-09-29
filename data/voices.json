@@ -1,0 +1,12 @@
+[
+  {
+    "id": "aa91418d-7ee5-4e25-b6c2-6ed2abe04ad9",
+    "provider": "elevenlabs",
+    "voiceId": "EzAG6ZwM7kI6Lo2DO44M",
+    "name": "할아버지입니다.",
+    "mode": "ivc",
+    "status": "ready",
+    "isPreset": false,
+    "createdAt": "2026-09-08T10:49:16.231Z"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "format": "voicestudio.podcast",
+  "version": 1,
+  "savedAt": "2026-09-29T07:46:24.504Z",
+  "project": {
+    "id": "8c7c34f7-fd24-404c-a59f-90209222c7b2",
+    "createdAt": "2026-09-29T07:46:21.584Z",
+    "updatedAt": "2026-09-29T07:46:21.584Z",
+    "setup": {
+      "topic": "",
+      "sourceText": "",
+      "useWebSearch": true,
+      "targetMinutes": 20,
+      "tone": "balanced",
+      "format": "news_briefing",
+      "speakers": [
+        {
+          "id": "host",
+          "name": "사회자",
+          "role": "host",
+          "persona": "차분하고 또박또박한 진행. 꼭지 전환을 깔끔하게 한다.",
+          "voiceId": "pwjMkbtUbj1hBa0RkN5N"
+        },
+        {
+          "id": "analyst",
+          "name": "해설가",
+          "role": "analyst",
+          "persona": "배경과 맥락을 쉽게 풀어 설명한다. 가끔 가벼운 농담.",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17"
+        },
+        {
+          "id": "panel1",
+          "name": "패널",
+          "role": "panel_curious",
+          "persona": "청취자 눈높이에서 엉뚱한 질문을 하기도 하고.  핵심을 찌르는 질문을 하기도 한다.",
+          "voiceId": "n2fbxG88jqAoaVPUy3IG"
+        }
+      ]
+    },
+    "factSheet": null,
+    "groundingSources": [],
+    "script": null,
+    "flags": [],
+    "modelId": "eleven_v4_turbo"
+  }
+}

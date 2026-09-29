@@ -1,0 +1,1881 @@
+{
+  "format": "voicestudio.podcast",
+  "version": 1,
+  "savedAt": "2026-09-29T10:40:14.708Z",
+  "project": {
+    "id": "2cacd215-2110-4943-920b-f52ab3903ebf",
+    "createdAt": "2026-09-29T07:30:01.788Z",
+    "updatedAt": "2026-09-29T10:40:12.524Z",
+    "setup": {
+      "topic": "오늘의 뉴스  10가지 ",
+      "sourceText": "뉴스 10가지 가지고 사회자가 차례대로 진행. \n사회자는 \"오늘의 스톰뉴스\"  라는 이 뉴스코너를 설명하고 어떤 재미있는 사건들을 미리 조금씩 말하고 . 차례대로 뉴스를 진행한다.  각 팩트와 팩트 사이를 부드럽게 이어지게 진행한다. \n",
+      "useWebSearch": true,
+      "targetMinutes": 20,
+      "tone": "balanced",
+      "format": "news_briefing",
+      "speakers": [
+        {
+          "id": "host",
+          "name": "사회자",
+          "role": "host",
+          "persona": "차분하고 또박또박한 진행. 꼭지 전환을 깔끔하게 한다.",
+          "voiceId": "pwjMkbtUbj1hBa0RkN5N",
+          "designSheet": "ced61ba4-0993-47ab-a619-18918cc6f751.jpg"
+        },
+        {
+          "id": "analyst",
+          "name": "해설가",
+          "role": "analyst",
+          "persona": "배경과 맥락을 쉽게 풀어 설명한다. 가끔 가벼운 농담.",
+          "voiceId": "ZJCNdZEjYwkOElxugmW2",
+          "designSheet": "bac7c49a-3936-4e45-8d76-9aa26b936864.jpg"
+        },
+        {
+          "id": "panel1",
+          "name": "패널",
+          "role": "panel_curious",
+          "persona": "청취자 눈높이에서 엉뚱한 질문을 하기도 하고.  핵심을 찌르는 질문을 하기도 한다.",
+          "voiceId": "n2fbxG88jqAoaVPUy3IG",
+          "designSheet": "caa7e73c-20ba-4c73-b7e8-a07393848025.jpg"
+        }
+      ],
+      "visual": {
+        "sceneStyle": "news_desk",
+        "contentMode": "backdrop",
+        "artStyle": "photo",
+        "imageModel": "gemini-3.1-flash-image"
+      },
+      "studioImage": "8a640153-c15e-4de5-bac0-1e29cff85c2e.jpg"
+    },
+    "factSheet": {
+      "date": "2026-09-29",
+      "segments": [
+        {
+          "no": 1,
+          "headline": "서부전선 DMZ 지뢰 폭발 현장서 북한군 지뢰 추가 발견…국방부 장관 “정전협정 위반 상응 조치”",
+          "facts": [
+            {
+              "id": "f1",
+              "text": "2026년 9월 29일 오전 10시경 육군 25사단 관할 DMZ 폭발 현장 조사 중 2차 폭발 화구 후방 약 1m 지점에서 북한군 수지 반보병지뢰 1발이 추가로 발견돼 사고 현장 주변 확인 지뢰가 최소 4발로 증가했다.",
+              "source_ids": [
+                "s1"
+              ]
+            },
+            {
+              "id": "f2",
+              "text": "강신철 국방부 장관은 2026년 9월 29일 국회 국방위원회에서 이번 사안을 정전협정 위반으로 규정하고 상응 조치를 단계적으로 시행하겠다고 밝혔다.",
+              "source_ids": [
+                "s1"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "DMZ 합동 조사 및 국방위 출석 일자",
+              "fact_id": "f1"
+            },
+            {
+              "value": "오전 10시경",
+              "context": "지뢰 추가 발견 시각",
+              "fact_id": "f1"
+            },
+            {
+              "value": "약 1m",
+              "context": "2차 폭발 화구 후방 발견 지점 거리",
+              "fact_id": "f1"
+            },
+            {
+              "value": "1발",
+              "context": "추가로 발견된 북한군 지뢰 수량",
+              "fact_id": "f1"
+            },
+            {
+              "value": "최소 4발",
+              "context": "사고 원점 주변에서 확인된 총 지뢰 수",
+              "fact_id": "f1"
+            }
+          ],
+          "people": [
+            {
+              "name": "강신철",
+              "title": "국방부 장관"
+            }
+          ],
+          "background": "발견된 수지 반보병지뢰는 외피가 플라스틱으로 제작되어 일반 금속탐지기로 탐지하기 매우 어렵다.",
+          "sensitivity": "high"
+        },
+        {
+          "no": 2,
+          "headline": "부산 북항 갇힌 상어 ‘부캉이’ 워터펌프 유도에도 복귀 거부…구조 작업 일시 중단",
+          "facts": [
+            {
+              "id": "f3",
+              "text": "2026년 9월 29일 오전 11시경 부산 북항 친수공원 인공수로에 12일째 머물던 약 3m 크기 상어를 물펌프로 외해로 유도하려 했으나 수로 안으로 되돌아가 약 3시간 만에 구조가 일시 중단됐다.",
+              "source_ids": [
+                "s2"
+              ]
+            },
+            {
+              "id": "f4",
+              "text": "수로에 머무는 상어는 방문객 약 60만 명을 모았으며 2026년 9월 29일 부산시 명예홍보대사로 위촉됐다.",
+              "source_ids": [
+                "s2"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "구조 작전 진행 및 명예홍보대사 위촉 일자",
+              "fact_id": "f3"
+            },
+            {
+              "value": "12일째",
+              "context": "상어가 수로에 머문 기간",
+              "fact_id": "f3"
+            },
+            {
+              "value": "약 3m",
+              "context": "상어의 몸길이",
+              "fact_id": "f3"
+            },
+            {
+              "value": "오전 11시경",
+              "context": "구조 작전 시작 시각",
+              "fact_id": "f3"
+            },
+            {
+              "value": "약 3시간",
+              "context": "구조 시도 지속 시간",
+              "fact_id": "f3"
+            },
+            {
+              "value": "장비 6대",
+              "context": "구조에 투입된 소방 구조보트 및 펌프차 장비 수",
+              "fact_id": "f3"
+            },
+            {
+              "value": "30여 명",
+              "context": "구조에 동원된 인력",
+              "fact_id": "f3"
+            },
+            {
+              "value": "약 60만 명",
+              "context": "북항 인공수로를 찾은 방문객 수",
+              "fact_id": "f4"
+            }
+          ],
+          "people": [],
+          "background": "인공수로는 바다와 불과 200m 거리지만 폭 30~60m, 수심 2.5~4m로 좁고 얕으며 열흘 넘게 먹이활동 흔적이 없어 장기 체류 시 탈진 위험이 있다.",
+          "sensitivity": "low"
+        },
+        {
+          "no": 3,
+          "headline": "온누리상품권 상반기 결제액 1·2위는 ‘마운자로 성지’ 서울 의원·약국…362억 원 쏠림",
+          "facts": [
+            {
+              "id": "f5",
+              "text": "국회 김원이 의원실 자료에 따르면 2026년 상반기 온누리상품권 결제액 1위는 서울 A약국 260억 원, 2위는 서울 B의원 102억 원으로 두 곳 합계 362억 원이 집중됐다.",
+              "source_ids": [
+                "s3"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 28일",
+              "context": "의원실 자료 공개 일자",
+              "fact_id": "f5"
+            },
+            {
+              "value": "2026년 상반기",
+              "context": "온누리상품권 결제 집계 기간",
+              "fact_id": "f5"
+            },
+            {
+              "value": "260억 원",
+              "context": "A약국 결제액",
+              "fact_id": "f5"
+            },
+            {
+              "value": "102억 원",
+              "context": "B의원 결제액",
+              "fact_id": "f5"
+            },
+            {
+              "value": "362억 원",
+              "context": "두 곳의 온누리상품권 합산 결제액",
+              "fact_id": "f5"
+            },
+            {
+              "value": "도보 5분",
+              "context": "해당 약국과 의원 간 거리",
+              "fact_id": "f5"
+            }
+          ],
+          "people": [
+            {
+              "name": "김원이",
+              "title": "더불어민주당 국회의원"
+            }
+          ],
+          "background": "중소벤처기업부가 2026년 6월 17일부터 연 매출 30억 원 초과 병·의원의 신규 가맹을 제한했으나 기존 등록 가맹점은 갱신 전까지 혜택이 유지된다.",
+          "sensitivity": "medium"
+        },
+        {
+          "no": 4,
+          "headline": "서울대 경영동아리 출신 금융사 임원들 ‘정보 카르텔’ 적발…미공개 M&A 정보로 200억 챙겨",
+          "facts": [
+            {
+              "id": "f6",
+              "text": "주가조작 근절 합동대응단은 서울대 경영동아리 및 글로벌 컨설팅사 출신 사모펀드 운용사 및 상장사 현직 임원 등 5명 내외를 적발하고 20여 곳을 압수수색했다.",
+              "source_ids": [
+                "s4"
+              ]
+            },
+            {
+              "id": "f7",
+              "text": "이들은 지난 5년간 M&A 업무로 얻은 5개 종목의 미공개 정보를 10여 명에게 공유해 주식을 선매수하고 200억 원 이상의 부당이득을 취득했다.",
+              "source_ids": [
+                "s4"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "합동대응단의 적발 및 압수수색 발표 일자",
+              "fact_id": "f6"
+            },
+            {
+              "value": "5명 내외",
+              "context": "연루된 핵심 피의자 수",
+              "fact_id": "f6"
+            },
+            {
+              "value": "20여 곳",
+              "context": "압수수색 대상 자택 및 사무실 수",
+              "fact_id": "f6"
+            },
+            {
+              "value": "5년",
+              "context": "미공개 정보를 취득·이용한 기간",
+              "fact_id": "f7"
+            },
+            {
+              "value": "5개",
+              "context": "부당이득에 이용된 대상 종목 수",
+              "fact_id": "f7"
+            },
+            {
+              "value": "10여 명",
+              "context": "정보를 공유받은 내부 인맥 및 지인 수",
+              "fact_id": "f7"
+            },
+            {
+              "value": "200억 원 이상",
+              "context": "피의자들이 취득한 부당이득 규모",
+              "fact_id": "f7"
+            }
+          ],
+          "people": [
+            {
+              "name": "황선오",
+              "title": "주가조작 근절 합동대응단 단장"
+            }
+          ],
+          "background": "합동대응단은 정보 공개 전 특정 계좌들의 대량 매매를 확인하고 2026년 5월부터 조사를 벌였으며 혐의 계좌의 지급을 정지했다.",
+          "sensitivity": "medium"
+        },
+        {
+          "no": 5,
+          "headline": "양종타 인천해양경찰서장, 청라동 관사에서 숨진 채 발견…경찰 사인 조사 착수",
+          "facts": [
+            {
+              "id": "f8",
+              "text": "2026년 9월 28일 오전 9시 5분경 인천 청라동 관사 아파트에서 양종타 인천해양경찰서장이 숨진 채 발견됐다.",
+              "source_ids": [
+                "s5"
+              ]
+            },
+            {
+              "id": "f9",
+              "text": "경찰은 외부 침입이나 외상 흔적이 없어 범죄 혐의점이 없는 것으로 보고 지병 여부 등 정확한 사인을 조사 중이다.",
+              "source_ids": [
+                "s5"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 28일",
+              "context": "양 서장 발견 일자",
+              "fact_id": "f8"
+            },
+            {
+              "value": "오전 9시 5분경",
+              "context": "양 서장 발견 및 신고 시각",
+              "fact_id": "f8"
+            },
+            {
+              "value": "51세",
+              "context": "양종타 서장의 나이",
+              "fact_id": "f8"
+            }
+          ],
+          "people": [
+            {
+              "name": "양종타",
+              "title": "인천해양경찰서장(총경)"
+            }
+          ],
+          "background": "총경급 해경서장은 서북도서 접경수역 및 서해특정해역의 관할 작전과 긴급출동 지휘를 위해 인근 관사에서 비상대기 체제를 유지한다.",
+          "sensitivity": "medium"
+        },
+        {
+          "no": 6,
+          "headline": "윤석열 전 대통령 공직선거법 2심 결심 공판 연기…10월 13일 속행",
+          "facts": [
+            {
+              "id": "f10",
+              "text": "2026년 9월 29일 서울고법 형사2-1부는 윤석열 전 대통령의 공직선거법 위반 항소심 결심 절차를 증인신문 장기화와 증거 조사로 인해 10월 13일로 연기했다.",
+              "source_ids": [
+                "s6"
+              ]
+            },
+            {
+              "id": "f11",
+              "text": "윤석열 전 대통령은 해당 사건 1심에서 징역 1년 6개월에 집행유예 3년을 선고받았다.",
+              "source_ids": [
+                "s6"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "항소심 공판 진행 일자",
+              "fact_id": "f10"
+            },
+            {
+              "value": "10월 13일",
+              "context": "연기된 다음 속행 공판 일자",
+              "fact_id": "f10"
+            },
+            {
+              "value": "징역 1년 6개월",
+              "context": "1심 징역형 형량",
+              "fact_id": "f11"
+            },
+            {
+              "value": "집행유예 3년",
+              "context": "1심 집행유예 기간",
+              "fact_id": "f11"
+            }
+          ],
+          "people": [
+            {
+              "name": "백승엽",
+              "title": "서울고법 판사"
+            },
+            {
+              "name": "황승태",
+              "title": "서울고법 판사"
+            },
+            {
+              "name": "김영현",
+              "title": "서울고법 판사"
+            },
+            {
+              "name": "윤석열",
+              "title": "전 대통령"
+            },
+            {
+              "name": "윤대진",
+              "title": "전 검사장"
+            }
+          ],
+          "background": "공직선거법상 후보자가 당선무효형을 확정받으면 정당은 보전받은 국고 선거비용 전액을 반환해야 하므로 최종 유죄 확정 시 국민의힘은 약 397억 원을 반납해야 한다.",
+          "sensitivity": "high"
+        },
+        {
+          "no": 7,
+          "headline": "교황 “AI 위험 우려, 가짜뉴스 아니다”…트럼프 ‘AI 종말론 사기’ 주장에 반박",
+          "facts": [
+            {
+              "id": "f12",
+              "text": "2026년 9월 28일 레오 14세 교황은 프랑스 방문 후 귀국하는 기내에서 AI 위험 우려는 결코 이익을 위한 가짜뉴스가 아니라고 언급했다.",
+              "source_ids": [
+                "s7"
+              ]
+            },
+            {
+              "id": "f13",
+              "text": "교황의 발언은 AI 인류 위협론을 사기이자 경쟁국의 음모로 규정하며 규제 철폐를 주장한 도널드 트럼프 미국 대통령의 입장을 반박한 것이다.",
+              "source_ids": [
+                "s7"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 28일",
+              "context": "레오 14세 교황의 전용기 기내 기자회견 일자",
+              "fact_id": "f12"
+            }
+          ],
+          "people": [
+            {
+              "name": "레오 14세",
+              "title": "교황"
+            },
+            {
+              "name": "도널드 트럼프",
+              "title": "미국 대통령"
+            }
+          ],
+          "background": "바티칸 교황청은 지난 5월 교황 회칙을 통해 AI가 인간 통제를 벗어나지 못하도록 국제적 규제와 발전 속도 조절을 공식 요구한 바 있다.",
+          "sensitivity": "medium"
+        },
+        {
+          "no": 8,
+          "headline": "전 세계 산업용 로봇 운용 재고 500만 대 돌파…중국이 신규 설치의 59% 차지",
+          "facts": [
+            {
+              "id": "f14",
+              "text": "2026년 9월 27일 국제로봇연맹 보고서에 따르면 2025년 기준 전 세계 공장에서 가동 중인 산업용 로봇 수가 전년 대비 9% 늘어나 500만 대를 돌파했다.",
+              "source_ids": [
+                "s8"
+              ]
+            },
+            {
+              "id": "f15",
+              "text": "지난해 신규 도입된 로봇은 60만 대 이상이며 중국이 전년 대비 20% 증가한 35만 4,000대를 설치해 전 세계 도입량의 59%를 차지했다.",
+              "source_ids": [
+                "s8"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 27일",
+              "context": "국제로봇연맹 보고서 발표 일자",
+              "fact_id": "f14"
+            },
+            {
+              "value": "9%",
+              "context": "2025년 전 세계 로봇 운용 재고 전년 대비 증가율",
+              "fact_id": "f14"
+            },
+            {
+              "value": "500만 대",
+              "context": "전 세계 가동 중인 산업용 로봇 수",
+              "fact_id": "f14"
+            },
+            {
+              "value": "60만 대 이상",
+              "context": "전 세계 신규 도입된 산업용 로봇 수",
+              "fact_id": "f15"
+            },
+            {
+              "value": "20%",
+              "context": "중국의 신규 로봇 설치 증가율",
+              "fact_id": "f15"
+            },
+            {
+              "value": "35만 4,000대",
+              "context": "중국의 신규 로봇 설치 수량",
+              "fact_id": "f15"
+            },
+            {
+              "value": "59%",
+              "context": "전 세계 신규 로봇 중 중국 점유율",
+              "fact_id": "f15"
+            }
+          ],
+          "people": [
+            {
+              "name": "제인 헤프너",
+              "title": "국제로봇연맹 회장"
+            }
+          ],
+          "background": "전 세계 산업 로봇 운용 규모 500만 대는 7년 전 대비 2배를 웃도는 수치로 급속한 공장 자동화 추세를 나타낸다.",
+          "sensitivity": "low"
+        },
+        {
+          "no": 9,
+          "headline": "‘잘자요 아가씨’ 닛몰캐쉬, 데이트 폭력 의혹 사실 인정…모든 활동 중단 선언",
+          "facts": [
+            {
+              "id": "f16",
+              "text": "2026년 9월 29일 소속사 NOB엔터테인먼트는 닛몰캐쉬의 데이트 폭력 및 폭언 의혹을 인정하고 공식 사과와 함께 모든 활동 중단을 알렸다.",
+              "source_ids": [
+                "s9"
+              ]
+            },
+            {
+              "id": "f17",
+              "text": "닛몰캐쉬는 SNS를 삭제하고 55만 명 규모 유튜브를 비공개 처리했으며, 주연을 맡은 2억 8,000만 원 예산의 경기도의회 웹드라마 시사회가 취소됐다.",
+              "source_ids": [
+                "s9"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "소속사 사과문 발표 일자",
+              "fact_id": "f16"
+            },
+            {
+              "value": "29세",
+              "context": "닛몰캐쉬의 나이",
+              "fact_id": "f16"
+            },
+            {
+              "value": "55만 명",
+              "context": "닛몰캐쉬 유튜브 구독자 수",
+              "fact_id": "f17"
+            },
+            {
+              "value": "2억 8,000만 원",
+              "context": "경기도의회 웹드라마 제작 예산",
+              "fact_id": "f17"
+            }
+          ],
+          "people": [
+            {
+              "name": "차청일",
+              "title": "크리에이터(닛몰캐쉬)"
+            }
+          ],
+          "background": "닛몰캐쉬는 방탄소년단 백댄서 출신으로 숏폼 영상 '잘자요 아가씨'와 예능 '더 인플루언서' 등에 출연해 인기를 얻었다.",
+          "sensitivity": "low"
+        },
+        {
+          "no": 10,
+          "headline": "배드민턴 이소희-백하나, 세계 1위 중국 꺾고 24년 만에 아시안게임 여자 복식 제패",
+          "facts": [
+            {
+              "id": "f18",
+              "text": "2026년 9월 29일 아이치·나고야 아시안게임 결승에서 이소희-백하나 조가 중국 류성수-탄닝 조를 1시간 46분 만에 2-1로 꺾고 금메달을 땄다.",
+              "source_ids": [
+                "s10"
+              ]
+            }
+          ],
+          "numbers": [
+            {
+              "value": "2026년 9월 29일",
+              "context": "배드민턴 여자 복식 결승전 개최 일자",
+              "fact_id": "f18"
+            },
+            {
+              "value": "세계랭킹 2위",
+              "context": "이소희-백하나 조 순위",
+              "fact_id": "f18"
+            },
+            {
+              "value": "세계랭킹 1위",
+              "context": "류성수-탄닝 조 순위",
+              "fact_id": "f18"
+            },
+            {
+              "value": "1시간 46분",
+              "context": "결승 경기 소요 시간",
+              "fact_id": "f18"
+            },
+            {
+              "value": "2-1",
+              "context": "최종 경기 스코어",
+              "fact_id": "f18"
+            }
+          ],
+          "people": [
+            {
+              "name": "이소희",
+              "title": "배드민턴 선수(인천국제공항)"
+            },
+            {
+              "name": "백하나",
+              "title": "배드민턴 선수(인천국제공항)"
+            },
+            {
+              "name": "류성수",
+              "title": "중국 배드민턴 선수"
+            },
+            {
+              "name": "탄닝",
+              "title": "중국 배드민턴 선수"
+            }
+          ],
+          "background": "한국 배드민턴의 아시안게임 여자 복식 금메달은 2002년 부산 대회 이후 24년 만이며, 해당 조는 지난 8월 세계선수권에 이어 정상에 올랐다.",
+          "sensitivity": "low"
+        }
+      ],
+      "sources": [
+        {
+          "id": "s1",
+          "title": "DMZ 폭발현장서 北지뢰 또 발견…강신철 “정전협정 위반, 상응조치”",
+          "url": "",
+          "publisher": "이데일리"
+        },
+        {
+          "id": "s2",
+          "title": "부산 상어 '부캉이' 물줄기 쏴도 안 나가…구조 작업 중단",
+          "url": "",
+          "publisher": "연합뉴스TV"
+        },
+        {
+          "id": "s3",
+          "title": "온누리상품권 결제액 1·2위는 '마운자로 성지' 의원·약국",
+          "url": "",
+          "publisher": "데일리팜"
+        },
+        {
+          "id": "s4",
+          "title": "서울대 동아리 출신 금융엘리트들, 미공개정보로 200억 부당이득",
+          "url": "",
+          "publisher": "아시아투데이"
+        },
+        {
+          "id": "s5",
+          "title": "양종타 인천해경서장 관사서 숨진 채 발견…“범죄 혐의점 없어“",
+          "url": "",
+          "publisher": "연합뉴스TV"
+        },
+        {
+          "id": "s6",
+          "title": "국민의힘 '397억 반환' 걸린 윤석열 선거법 2심…결심 10월13일로 연기",
+          "url": "",
+          "publisher": "코리아이글뉴스"
+        },
+        {
+          "id": "s7",
+          "title": "교황, AI 인류위협론 \"가짜뉴스 아냐\"…트럼프 주장에 정면 반박(종합)",
+          "url": "",
+          "publisher": "연합뉴스"
+        },
+        {
+          "id": "s8",
+          "title": "2026 세계 로봇 보고서---전 세계 공장에 도입된 로봇 500만 대 돌파",
+          "url": "",
+          "publisher": "하이테크정보"
+        },
+        {
+          "id": "s9",
+          "title": "'잘자요 아가씨' 닛몰캐쉬, 활동 중단…데이트 폭력 의혹 인정",
+          "url": "",
+          "publisher": "연합뉴스TV"
+        },
+        {
+          "id": "s10",
+          "title": "'세계 1위' 中 넘었다…이소희-백하나, 24년 만에 여자복식 금메달 [아시안게임]",
+          "url": "",
+          "publisher": "연합뉴스"
+        }
+      ]
+    },
+    "groundingSources": [
+      {
+        "title": "edaily.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOyQBIirsE2OHsGrurvoOojEWCCvbwerveIcD-FGdf9h7cuyFLgDjdytVYFDDI6CkQIiby0VXrROrcOBiP7ymfsMWibzsT-6YpEa3-bUHekQ91aWmJSitkYYsBuRUnIRHLLr0NxwUJzekdCyO6nMAQoKfXhigRZ-PFSj38dtsi4A=="
+      },
+      {
+        "title": "donga.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJIU17PwF4zNbbYT59dWAPdfTcyiOAH_D4qv8wffWSBjmH3ZRtN3RMk0XUCRaRIYLLLyGk69kNJVQlZ0BDzxlqJX4uPVWj8iejNNWoAWMY3SOsUNXlisIngyTxyBa8XDuXdfcqFOSNOwn66sr9_9uRkXg79BQNXVBr"
+      },
+      {
+        "title": "daum.net",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDRkdsJrJvEizMeDtmA4NMZldOqZEzKoeDIZcuGuv8_0iCegPG4RtzkgkSWEKhbPXAF6gbiVr1qg3gNEssAsmXsWEuekP5wX_4kluEunP-R1Q1Hcl71HTjUSQv"
+      },
+      {
+        "title": "ytn.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHB7g43RSoTzi_fjcaat5ctyE-JG2tCKATZfpeu8Z3OqH1ZirFyNLOfzQ0d6NaPiBVBfTzOGVeqAQAGdpzNh3BHBkB9_u7palLU2pFJ5FKFKEFDRkwFdCxe-WUP_uBQNNUK6y_BAhw="
+      },
+      {
+        "title": "munhwa.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEjjTa8ei-E4JZjOmbFydYru1-9jT0y_VlSDxnef6_LhngJC6Ogcqqm-ZMZRGQezxQB4EietHEP4bG5oSHy7e2uD7dggCtnayBnXsN7_eZFG69SBiMQRa2mDRO13Q=="
+      },
+      {
+        "title": "chosun.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNtF9O7jQZL6uA-JYk1wwMhzignAkb70FiB3ngHKTsBbqZKLArkw98EHcJJsHHULBxhVLQycZd1l5cvF62QgKEFExhuxxX-GAxow5xxx4dwIrtDyHVS9JKxvCsEelervWjxWC_ymXgmvYDOG65v7nFVkfFKy9cAW_W0SgJctQni01B5dg="
+      },
+      {
+        "title": "haesanews.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG43lZcgp8fB4pDbcJzOu8GuUiGGh7_P77aublPTOwm0HWZqAkwuIsIoL9WZphjx1UkuMbK57xkNMMSZeBxKwJqJ0syVNsB6o5eLLYsiVnFB7poMJ7Knq5U6dGq_tcsemIlmFrwWOon6YWE-6ubrwUO"
+      },
+      {
+        "title": "namu.wiki",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZZMj5-c0zTQtCmeLIDicWEOsZxPZNOcTb8I5SXW8PdtuVKR2zyjJWn5d7gTTGYDfUg67l78_QLskz7mSY3zh41JOoK-Fa_Mghf2XIYGg27wvG0itlOzBF6wha99mFAffkDFyokL9UTx4n2D1q_k7J8K7aef6UYGHDzuMEcIBLCITAb8r64LP-7eBfHQWIiLVbbPnzusF6n2YCuMv2-k9Kh5jS_pEbHlLpI5zeELoNa7Gdt-nV6Nd1atMT6CFCdA=="
+      },
+      {
+        "title": "daum.net",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZ8VwyIMROMyOcGleGsuDgoGc43TX8Xb9DyYMH_B127GDdgzEdF0KAO0SVchfoKWhVs7uqly9VuvBpmnOlD_wNxeDUWKchJB37ECqZmtfugowfKIo="
+      },
+      {
+        "title": "dailypharm.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmNIqMW5SnaLfFPLQWJvnrXD9NnJwZgtL_kfy1yrtZAWAHG3heU-YN3W_N_T62CyXHbNMnT80Q6uSr53kE9kjJa_GSS6mWUlLNqBp0c4paM3uiDn38pgJgZ9oBFtsPpQk="
+      },
+      {
+        "title": "chosun.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUHllbsnbJpWp6_njKAZOWdINpV5rYtR-fRv6B1nEZ1YK-CTx9mVF17z5xJpdxK36RVxXH9k3trXMvb9_BZl99Su4pXlQNMj_E075dU_nlPYLf5k3htq01ONZCkpEVg8wOmmR95kD75koEYJtR5uxCD20RC20LIvXTvWA0jqnIbfkuwp6WbdzmfgKY3w=="
+      },
+      {
+        "title": "yna.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3aO2jX3WwigwGRdVXxHTPYihBQBXnP4jjVrlRc0pDJokQg0ss69HuVX4ntPyerT6_rNLTrVPCXYwvToBm4GGf3vJvCGfmATLBQWBY-YDB3okHGtgb46avandIRhrNCZPvKS1v"
+      },
+      {
+        "title": "asiatoday.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJcd0V9VLCeRxxoMNy7Prk8d1CtilzS1ionCJ516B48adqt38UDYhBZuMKaIgqp7D4_4r6a3-eJpb_6rw5pvZgUo9aeAecpVUmbRHKrYkd3OxpXUAFwuw1DJ9wK19u9c_-dRht4q6hgQrwrZKzdAZ7"
+      },
+      {
+        "title": "haesanews.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGz4YK0m4aK-igHAIEm4ps3g9GBAbjXCfLsrWLQ6315TwhvPmNzmJ801Gs66a5jq_vBTSyhjZL6XT7iuiiELCmQdjp12BSP8IaXnJeSlODZkEZ_nEfnGHppLuKPn0M22OdjH833XKWg5Tf4r8u4IIS"
+      },
+      {
+        "title": "chosun.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHpDPdw7KTZts4gyLrv13ajqip4Qv_2gtyZuzMutG8U3P_HBgOx2sxiV2KhluMtUIuyO8aFtDxyeWKtixDo_F_RRd-pnyTFcsrZyyeNwPEDAgC_ewRGGhDjTmkebuUUpqzt0Ap8fteLuoYsT0wLw8Ka8yA30EMx17uZFxvyLGCm9Sdch8="
+      },
+      {
+        "title": "kcg.go.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHU32171YCZmKyN5RKA0CL1f68NY5H3mhsRSJY4c52qJ7125X47P5-Jm_oPh4RnR5IkPiKn1PTKBO74LuhHDik8qInayOQgevSOoTQeMfuT0kLSmDhR-V5q5MtVD52fN7LEZGV6nNOThOPSf8TmGPJJdgogJMTXIWvAMVEHSXzHSAA="
+      },
+      {
+        "title": "yonhapnewstv.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2YXRCuO0ZQhtcZHjE3Bs4wQEWsxkxmDlr-1HvbOetCEpZGMocTQuaF373duOoF2CEJfEaNN8SBk4fqw80XF9Qf66GwqKX9PP2q_vYASCYEvDi0epkS6DHfHnnXu_CVsb9M3-Ksd9Lhattfb3y"
+      },
+      {
+        "title": "koreaeaglenews.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrc4bkrd81smK1dG36SWFiiqyKf6aYyR0SArEa-9TJE4IWApLSAcitY8pkJ3Xq8Hql_NP49qTHfsrsd-vsr1gfpRJuCF4RZDex8LSML0lcmX4WXEpbdnlLM5uhXiZeZNtJDXliwwEOvie7QuBH9YdbL4O7Ql3f6A=="
+      },
+      {
+        "title": "k-unron.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH62GcmTrtcHHgPsvzW7dWqpvl0f1DrZYxx7NDBcG-4FComGT0n9bmfYhGOBGr7YIOX7duajVHgAuriC99b6UjgqAUyVWouSU842b85MBfQEUFhh1xWytmQRV53gYxRziyLbcKTDVsPnM3anT5e0o9n-Q=="
+      },
+      {
+        "title": "joongang.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHAbq5Upgap6Q-zsoDp3pdxLj5gDhusvRkcDoimrPLOHYpXeRALCoE_LZOAQNt2x--rYuYBJsOiexIn31f-VHFuQ0PgcMMy6_qFVswhog1nBW3PMFolKJNo5imfjsImhI="
+      },
+      {
+        "title": "daum.net",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_48Jwq5NNT-vO35NJnZJg2XASPwC7tGRkvdYgB-UgZeGQ-pT0vlGRr-TR48jVjAvE9WILa-tBn3dsgrMUPFJR59upbDt-f88EQM6GfKuRzlJMqb7-yInj2Vw3"
+      },
+      {
+        "title": "aitimes.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnesejxrvhqpCNCtuEIrEToCqpHHIED9Puxd8GYBqnb65b7NIo8h0A0MHeDefsWKKdNuZMqWBwk5rNwnSsoM6onM334NI3UZgVvfYjxptSfGCh5jG1-nfNTwmtp6XC95_y-fqc5v9NIJit0jeNZr4="
+      },
+      {
+        "title": "yna.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfvtGB_jql0sTM9xZhllVaZr8kjk_ndOYxrnskFdVsuNxqKyoIENKnnyn11872Uk3SKReL09ibZcGzLi1Zl4NjTetPOlYlzWMlMSmKmy5SaJ3V1nWzZgs5R_utZiBIRxkjWqv2"
+      },
+      {
+        "title": "hitech.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZSwOr0KeKE5Kg5qsqnaUmuSJWJv4aXWTKhodacwqRMV2otmTP5_7xndIIMf_Wq_G2W_Sf4cmtcSNKXdKEAt2ARKTfdwsCEyCT1Ak2KiC9hQ-Q1UR-XLhGNLPq73L9rNcm1rKAdj4iPP_F0cp7ZQ=="
+      },
+      {
+        "title": "yonhapnewstv.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpUwyCiNNLvlmlUs_GBdV4i86wUUH7kblNzBrEvvEQX-6b6QsN5uWnAQK-H5FolKhvlrfp32LL5tf91Dzol0L2p-cb4P6CkF834uwO2uwvMYmPYtBWIPWWRt4AWuFiarC6s9tal1hI-EQlNPWb"
+      },
+      {
+        "title": "seoul.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFCJckBmLwuOexb-v9e59sUiQU9FOdH9E2ZBhkh11BfTcLhaSduBFVMvAYQXKTFb1eJGKV56qt0-3pRXYlUFqSmrLd33ovCH_57J1y7q30fyTdOwrzePGwu0Ag4G4Agq7hLdJSEBt-89zgtzCgB3fn3aiSx9ntgBD_u69QJPHRxEHn3DDU="
+      },
+      {
+        "title": "ajunews.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuU9xFk7x3Htkvcq1xwKEOrU5fcofyChpsjvhqUdYeXJU95IEWR8Ov0sI4yJAym_D7Wk7mfEzVKD336MpTtFQEnJJcU02OQXQnAkn-pIbSp7dWJeqm2luLhJqbDnGebD9Irqs="
+      },
+      {
+        "title": "daum.net",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFW-0hjRNrNdMcKwl_gImOItQqnDk30eJF35hOwKeO5JtMqFfItbxqXkOPfsqH8ZZKdfRs78uiLVXLuXR5TEZU-XIUTsCik4ITIQfanFi2BQ5qqsWAFMTOYC6ht"
+      },
+      {
+        "title": "mk.co.kr",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHN9R99yMkELGGj8lWp3c155ymR0qOm9ay4F5Q2Mj8JYDHKDMzr91dsCTrE2ySlG_TjyzsgcrTpCwFkQ4rjL3MlDJjC7WlUkp4u79bdIqwFX14wOD-gkPORAcjwQeKS2w=="
+      },
+      {
+        "title": "chosun.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSduP49-0adPXg9MnMM2DMSCDoAk_lOrQkgETQirYDA-Z5z6cU7wR-HhAZbE5Hmv6q-RbRZYPEqMixwRculZj3aV7y-aZKcwcj7JQZMmmNmgLWk2GGgSYGj9nwyEApV8q9j_uiHKElZMFX1YoKF3eXjmsHsG9ucpyg9m6DeUyD9i12g104s2kDKg=="
+      },
+      {
+        "title": "daum.net",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF4A9aGYrzc_tr_0iZzKd0ZzRQMHIfYJjipuqQRkNiLJK0YQ6WREqXr4Bf1s3ureQ2gyPxoDxgohO09kTKyzdSV4biCSWWpS_g1gJoXnN_GDEGkk4MxvRwqqMgbkg=="
+      },
+      {
+        "title": "olympics.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG9qnw7vaJZry5mstJna8wF2oPbDrt14CnFZVOMvwfjuApGYi9DDRuc49fMp2mDzGCUB2vKL59NFOzAUXWYqK8YDD7Gb4udl6Xj-liauBUSNVMopY5IfOweQNQhovIQpzovPIfbHV5_Vqn1BlK3UTKpD-aksDLpWG7nsUFU04Wg6J9rG9gHjyHa26QcbsWTCH4f6ks8Zthh5c4="
+      }
+    ],
+    "script": {
+      "title": "뉴스 브리핑 오늘 · 2026년 9월 29일",
+      "target_minutes": 20,
+      "utterances": [
+        {
+          "seq": 1,
+          "speaker": "사회자",
+          "segment_no": 0,
+          "emotion": "bright",
+          "text": "[cheerfully] 청취자 여러분 안녕하십니까. 2026년 9월 29일 화요일 아침, 오늘의 주요 뉴스를 명쾌하게 정리해 드리는 뉴스 브리핑입니다. 오늘 함께해 주실 두 분 소개합니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "88e6a1e3-0381-40e8-bb5a-705a7fa1c100.jpg",
+            "sig": "hszyiu"
+          }
+        },
+        {
+          "seq": 2,
+          "speaker": "해설가",
+          "segment_no": 0,
+          "emotion": "bright",
+          "text": "[warmly] 안녕하세요. 복잡하게 얽힌 뉴스 속 핵심 사실과 배경을 알기 쉽게 풀어드릴 해설가입니다. 오늘도 알찬 소식 가득 챙겨왔습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "bd3bde3d-e211-446a-9086-944742865816.jpg",
+            "sig": "xdls6k"
+          }
+        },
+        {
+          "seq": 3,
+          "speaker": "패널",
+          "segment_no": 0,
+          "emotion": "bright",
+          "text": "[playfully] 반갑습니다! 청취자 여러분의 눈과 귀가 되어 엉뚱하지만 날카로운 궁금증까지 콕콕 짚어 질문 던지겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "c1b91d85-00a1-4c65-b8a9-4951be6a0919.jpg",
+            "sig": "tjwqtg"
+          }
+        },
+        {
+          "seq": 4,
+          "speaker": "사회자",
+          "segment_no": 0,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 오늘 브리핑에서는 비무장지대 지뢰 발견 소식부터 부산 수로의 상어 소동, 금융 범죄 수사와 아시안게임 금메달 소식까지 총 10가지 주요 소식을 짚어봅니다. 그럼 첫 번째 소식으로 들어가 보겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "875d31cf-f149-4cb4-8b73-434851fa15ad.jpg",
+            "sig": "1nsbz84"
+          }
+        },
+        {
+          "seq": 5,
+          "speaker": "사회자",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[serious] 첫 소식은 군사 안보 소식입니다. 서부전선 비무장지대 지뢰 폭발 현장에서 북한군 지뢰가 추가로 발견됐습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "f99fd484-2964-4015-9d6a-006e9fbf8062.jpg",
+            "sig": "k4c1t4"
+          }
+        },
+        {
+          "seq": 6,
+          "speaker": "해설가",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 네, 2026년 9월 29일 오전 10시경 육군 25사단 관할 비무장지대 폭발 현장을 조사하던 중이었습니다. [short pause] 2차 폭발 화구 후방 약 1미터 지점에서 북한군 수지 반보병지뢰 1발이 추가로 수습됐습니다.",
+          "fact_ids": [
+            "f1"
+          ],
+          "scene": {
+            "assetId": "745914cf-5f66-4d0e-861b-ee8bc57e5615.jpg",
+            "sig": "14wnfm3"
+          }
+        },
+        {
+          "seq": 7,
+          "speaker": "해설가",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[somber] 이로써 사고 현장 원점 주변에서 확인된 지뢰는 최소 4발로 늘어났습니다. 우리 군 장병들의 안전에 실질적인 위험이 노출된 상황입니다.",
+          "fact_ids": [
+            "f1"
+          ],
+          "scene": {
+            "assetId": "884bcbf1-1637-4570-90b4-b6e9fe387902.jpg",
+            "sig": "njxju2"
+          }
+        },
+        {
+          "seq": 8,
+          "speaker": "패널",
+          "segment_no": 1,
+          "emotion": "curious",
+          "text": "[curious] 수지 반보병지뢰라는 이름이 생소한데요, 일반적인 목함지뢰나 쇠로 된 지뢰와는 어떤 점이 다른 건가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "2fa0e6bd-3188-41c9-8c21-d341610f7bdb.jpg",
+            "sig": "13r5tf4"
+          }
+        },
+        {
+          "seq": 9,
+          "speaker": "해설가",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[thoughtful] 여기서 우리가 잘 몰랐던 사실이 하나 있습니다. 이 수지 반보병지뢰는 외피가 플라스틱 수지로 만들어져 있어서 일반 금속탐지기로는 탐지가 거의 불가능에 가깝다는 점입니다. [matter-of-fact] 탐지 장비의 반응이 매우 미약해 수색 대원들에게 치명적인 위험을 초래합니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "2091419f-5932-45cc-bf02-f48f90ca5e54.jpg",
+            "sig": "1fsfefd"
+          }
+        },
+        {
+          "seq": 10,
+          "speaker": "패널",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[serious] 금속탐지기로도 잡히지 않는다니 정말 위험천만하군요. 우리 군과 정부는 이번 사태를 어떻게 대응하고 있습니까?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "cc4b739f-faa4-45f8-9051-f5864373cb8d.jpg",
+            "sig": "3t963"
+          }
+        },
+        {
+          "seq": 11,
+          "speaker": "해설가",
+          "segment_no": 1,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 강신철 국방부 장관은 오늘 국회 국방위원회에 출석해 이번 사안을 명백한 정전협정 위반으로 공식 규정했습니다. 그러면서 군사적 조치를 포함한 상응 조치를 단계적으로 시행하겠다고 단호히 밝혔습니다.",
+          "fact_ids": [
+            "f2"
+          ],
+          "scene": {
+            "assetId": "3fd1cfa8-f7a3-4790-89cf-5ed0496a83e4.jpg",
+            "sig": "a5r81t"
+          }
+        },
+        {
+          "seq": 12,
+          "speaker": "사회자",
+          "segment_no": 1,
+          "emotion": "calm",
+          "text": "[serious] 접경지역 안전 관리와 후속 조치를 면밀히 지켜봐야겠습니다. 다음 꼭지로 넘어가 보겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "ba63d696-e865-4db2-9a1d-d64aaf5af387.jpg",
+            "sig": "1phn7mf"
+          }
+        },
+        {
+          "seq": 13,
+          "speaker": "사회자",
+          "segment_no": 2,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 두 번째 소식입니다. 부산 북항 친수공원 인공수로에 머물고 있는 상어 이야기인데요, 외해 유도 작전이 난항을 겪고 있습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "17b03aa2-7520-4efd-b34c-0617bbe22b95.jpg",
+            "sig": "15r2v0s"
+          }
+        },
+        {
+          "seq": 14,
+          "speaker": "해설가",
+          "segment_no": 2,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 2026년 9월 29일 오전 11시경 구조 당국이 인공수로에 12일째 머물던 약 3미터 크기의 상어를 바다로 내보내기 위해 물펌프를 가동했습니다. 하지만 상어가 거센 물줄기에도 나가지 않고 수로 안쪽으로 되돌아가면서 약 3시간 만에 작전이 일시 중단됐습니다.",
+          "fact_ids": [
+            "f3"
+          ],
+          "scene": {
+            "assetId": "66493b91-ca8c-4031-ab94-403d3263217d.jpg",
+            "sig": "1auyol"
+          }
+        },
+        {
+          "seq": 15,
+          "speaker": "해설가",
+          "segment_no": 2,
+          "emotion": "calm",
+          "text": "[thoughtful] 이번 구조에는 소방 구조보트와 펌프차 등 장비 6대와 인력 30여 명이 동원됐지만, 상어의 방향 전환을 이끌어내지 못했습니다.",
+          "fact_ids": [
+            "f3"
+          ],
+          "scene": {
+            "assetId": "2ec4818c-3fd9-4631-b1aa-ec0ea6f5b69a.jpg",
+            "sig": "7ko060"
+          }
+        },
+        {
+          "seq": 16,
+          "speaker": "패널",
+          "segment_no": 2,
+          "emotion": "curious",
+          "text": "[curious] 바다가 바로 코앞일 텐데 상어가 왜 굳이 좁은 인공수로에 계속 남아있는 걸까요? 물 밖에서 보면 평화로워 보이기도 하던데요.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "cb2d7962-1530-4043-96b0-34f0b05525ee.jpg",
+            "sig": "1pvsq8w"
+          }
+        },
+        {
+          "seq": 17,
+          "speaker": "해설가",
+          "segment_no": 2,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 실상은 꽤 위태롭습니다. 겉보기엔 바다와 불과 200미터 거리지만 인공수로는 폭이 30에서 60미터, 수심은 2.5미터에서 4미터로 매우 좁고 얕습니다. [thoughtful] 게다가 열흘 넘게 먹이활동 흔적이 전혀 확인되지 않아 체류가 길어지면 탈진할 위험이 큽니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "a1a83d48-33a8-4e11-9290-4ed61d31141d.jpg",
+            "sig": "6rgxzr"
+          }
+        },
+        {
+          "seq": 18,
+          "speaker": "패널",
+          "segment_no": 2,
+          "emotion": "surprised",
+          "text": "[surprised] 굶주려서 탈진할 수도 있는 거였군요! 그런데 이 상어가 시민들 사이에서 엄청난 인기를 끌고 있다면서요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "3dc489b1-b829-44f8-9a7e-6de997356758.jpg",
+            "sig": "f1szgj"
+          }
+        },
+        {
+          "seq": 19,
+          "speaker": "해설가",
+          "segment_no": 2,
+          "emotion": "calm",
+          "text": "[chuckles] 맞습니다. 부캉이라는 애칭으로 불리며 약 60만 명의 방문객을 불러 모았고, 오늘 부산시 명예홍보대사로 정식 위촉되기도 했습니다. [sighs] 하지만 야생동물인 만큼 안전하게 바다로 돌아가는 것이 가장 시급합니다.",
+          "fact_ids": [
+            "f4"
+          ],
+          "scene": {
+            "assetId": "2d5ec28b-afff-4549-8ce8-7849360e5802.jpg",
+            "sig": "1sr4bx1"
+          }
+        },
+        {
+          "seq": 20,
+          "speaker": "사회자",
+          "segment_no": 2,
+          "emotion": "calm",
+          "text": "[reassuring] 하루빨리 기력을 차리고 무사히 넓은 바다로 돌아갈 수 있는 유도책이 나오길 기대합니다. 세 번째 소식 살펴보겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "79b81196-0897-49f3-9907-3692c22344d4.jpg",
+            "sig": "38416h"
+          }
+        },
+        {
+          "seq": 21,
+          "speaker": "사회자",
+          "segment_no": 3,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 전통시장 활성화를 위해 발행되는 온누리상품권이 특정 비만 치료제 처방 의원과 약국에 수백억 원씩 쏠려 논란이 일고 있습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "573d4be3-6724-4f31-9d53-aed5bedad94f.jpg",
+            "sig": "18cuu8w"
+          }
+        },
+        {
+          "seq": 22,
+          "speaker": "해설가",
+          "segment_no": 3,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 국회 김원이 의원실이 공개한 자료에 따르면 2026년 상반기 온누리상품권 결제액 전국 1위는 서울의 A약국으로 260억 원이 결제됐습니다. 2위는 서울 B의원으로 102억 원을 기록했습니다.",
+          "fact_ids": [
+            "f5"
+          ],
+          "scene": {
+            "assetId": "efdc7994-b6b1-43b4-a03f-5e6c0260fce7.jpg",
+            "sig": "1hmc0wu"
+          }
+        },
+        {
+          "seq": 23,
+          "speaker": "해설가",
+          "segment_no": 3,
+          "emotion": "serious",
+          "text": "[emphasized] 이 두 곳에서 쓰인 온누리상품권 금액만 무려 362억 원에 달합니다. 특히 두 곳은 도보 5분 거리로 인접해 있어서 이른바 마운자로 성지로 불리며 이용자가 몰렸습니다.",
+          "fact_ids": [
+            "f5"
+          ],
+          "scene": {
+            "assetId": "062048fb-0fd9-43e2-9679-dffc6ad1e404.jpg",
+            "sig": "18mn88i"
+          }
+        },
+        {
+          "seq": 24,
+          "speaker": "패널",
+          "segment_no": 3,
+          "emotion": "curious",
+          "text": "[curious] 온누리상품권은 원래 골목상권이나 소상공인을 돕자고 할인 혜택을 주는 세금 지원 정책 아닌가요? 대형 병·의원에서 이렇게 쓸 수 있는 제도적 빈틈이 있었던 건가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "49130311-23a4-409c-b17f-2266f728936c.jpg",
+            "sig": "exya43"
+          }
+        },
+        {
+          "seq": 25,
+          "speaker": "해설가",
+          "segment_no": 3,
+          "emotion": "thinking",
+          "text": "[hmm] 그 지점에 제도적 맹점이 있었습니다. 중소벤처기업부가 2026년 6월 17일부터 연 매출 30억 원을 초과하는 병·의원의 신규 가맹을 전면 제한하긴 했습니다. [matter-of-fact] 하지만 이미 등록되어 있던 기존 가맹점은 갱신 시점이 돌아오기 전까지 혜택이 그대로 유지되는 유예 상태였던 것입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "50a1974d-0a94-4b94-b6ab-27b5c067e4a8.jpg",
+            "sig": "kxxpkw"
+          }
+        },
+        {
+          "seq": 26,
+          "speaker": "패널",
+          "segment_no": 3,
+          "emotion": "serious",
+          "text": "[skeptical] 결국 규제가 시행된 이후에도 기존 가맹점이라는 이유로 고가의 비급여 비만약 구매에 할인 혜택이 집중된 셈이군요.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "c8209077-7583-4fc0-8db5-3ceb06ddcde9.jpg",
+            "sig": "g3a81x"
+          }
+        },
+        {
+          "seq": 27,
+          "speaker": "사회자",
+          "segment_no": 3,
+          "emotion": "calm",
+          "text": "[thoughtful] 영세 상인을 위한 정책 자금이 엉뚱한 곳에 집중되지 않도록 조속한 제도 보완이 필요해 보입니다. 네 번째 소식으로 이어갑니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "3b0655a5-1f90-4b63-829f-301b5d30d602.jpg",
+            "sig": "16jaifi"
+          }
+        },
+        {
+          "seq": 28,
+          "speaker": "사회자",
+          "segment_no": 4,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 이번엔 금융 시장 소식입니다. 서울대 경영동아리 출신의 금융권 인사들이 뭉친 미공개 정보 카르텔이 당국에 덜미를 잡혔습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "eb5b89b2-75ff-491a-8605-b61ccb5fb048.jpg",
+            "sig": "1mm7mwd"
+          }
+        },
+        {
+          "seq": 29,
+          "speaker": "해설가",
+          "segment_no": 4,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 주가조작 근절 합동대응단은 서울대 경영동아리와 글로벌 컨설팅사 출신 사모펀드 운용사 임원, 상장사 현직 임원 등 5명 내외를 적발했다고 오늘 발표했습니다. 피의자들의 자택과 사무실 등 20여 곳에 대한 압수수색도 진행됐습니다.",
+          "fact_ids": [
+            "f6"
+          ],
+          "scene": {
+            "assetId": "21d87d9b-5049-4f01-b6b6-2eb1eda2e3c5.jpg",
+            "sig": "1emj785"
+          }
+        },
+        {
+          "seq": 30,
+          "speaker": "해설가",
+          "segment_no": 4,
+          "emotion": "serious",
+          "text": "[somber] 이들은 지난 5년간 기업 인수합병 업무를 취급하며 알게 된 5개 종목의 미공개 중요 정보를 10여 명의 내부 인맥과 공유했습니다. [emphasized] 주식을 미리 사들이는 수법으로 챙긴 부당이득만 200억 원 이상입니다.",
+          "fact_ids": [
+            "f7"
+          ],
+          "scene": {
+            "assetId": "6e80f5ac-3e56-445d-a340-23d420dbc09d.jpg",
+            "sig": "1ppmaqs"
+          }
+        },
+        {
+          "seq": 31,
+          "speaker": "패널",
+          "segment_no": 4,
+          "emotion": "curious",
+          "text": "[skeptical] 학연과 직장 인맥으로 은밀하게 정보를 주고받았을 텐데, 수사 당국은 이 치밀한 연결고리를 어떻게 포착해 낸 건가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "bae19249-c0aa-4b51-979a-e571930ba76c.jpg",
+            "sig": "1ez82h4"
+          }
+        },
+        {
+          "seq": 32,
+          "speaker": "해설가",
+          "segment_no": 4,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 합동대응단이 공시 전 특정 계좌들의 비정상적인 대량 매매 흐름을 포착하고 2026년 5월부터 집중 조사를 벌여왔습니다. [thoughtful] 혐의가 드러난 계좌들의 지급 정지 조치까지 단행하며 은닉 재산 동결에 나섰습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "dc33cee2-3e39-4693-8a9e-0f577fb62281.jpg",
+            "sig": "36h4ch"
+          }
+        },
+        {
+          "seq": 33,
+          "speaker": "패널",
+          "segment_no": 4,
+          "emotion": "serious",
+          "text": "[serious] 금융 시장의 신뢰를 무너뜨리는 미공개 정보 이용 행위는 정말 엄단해야 마땅합니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "d21d5da8-53e6-4dd6-922f-6b5aa2bcd6f0.jpg",
+            "sig": "1dntrfs"
+          }
+        },
+        {
+          "seq": 34,
+          "speaker": "사회자",
+          "segment_no": 4,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 합동대응단의 추가 수사 상황도 계속 전해드리겠습니다. 다섯 번째 소식입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "490da840-527d-4a64-9fdf-2bc88293d255.jpg",
+            "sig": "1fzjqzs"
+          }
+        },
+        {
+          "seq": 35,
+          "speaker": "사회자",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[somber] 안타까운 소식입니다. 양종타 인천해양경찰서장이 관사에서 숨진 채 발견되어 경찰이 조사에 나섰습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "5d0320eb-17ba-43ad-be6a-f8a49cdfb803.jpg",
+            "sig": "ar0v7g"
+          }
+        },
+        {
+          "seq": 36,
+          "speaker": "해설가",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[somber] 2026년 9월 28일 오전 9시 5분경 인천 서구 청라동의 한 관사 아파트에서 양종타 인천해양경찰서장이 숨져 있는 것을 동료 등이 발견해 경찰에 신고했습니다. 양 서장의 나이는 51세입니다.",
+          "fact_ids": [
+            "f8"
+          ],
+          "scene": {
+            "assetId": "78ec26e2-4829-49b8-a5e6-b8e6146eea02.jpg",
+            "sig": "x2jhye"
+          }
+        },
+        {
+          "seq": 37,
+          "speaker": "해설가",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 현장 감식 결과 외부 침입 흔적이나 외상이 전혀 없어 경찰은 타살 등 범죄 혐의점은 없는 것으로 판단하고 있습니다. 평소 지병 여부를 비롯해 정확한 사망 원인을 조사 중입니다.",
+          "fact_ids": [
+            "f9"
+          ],
+          "scene": {
+            "assetId": "afb71bbb-ae26-4cb9-8e18-d8030420263d.jpg",
+            "sig": "1tavfgg"
+          }
+        },
+        {
+          "seq": 38,
+          "speaker": "패널",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[thoughtful] 해양경찰서장이 집이 아닌 관사에서 머물다가 이런 변을 당하셨는데, 관사 생활에 특별한 배경이 있었던 건가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "0de5e31e-5125-4184-b348-586ce105fc9f.jpg",
+            "sig": "1pny962"
+          }
+        },
+        {
+          "seq": 39,
+          "speaker": "해설가",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[somber] 총경급 해경서장은 서북도서 접경수역과 서해특정해역의 관할 해상 작전, 긴급출동 지휘를 도맡고 있습니다. [short pause] 긴급 상황 발생 시 즉각 지휘통제를 하기 위해 관할서 인근 관사에서 상시 비상대기 체제를 유지해야 하는 무거운 보직입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "99118bb2-5205-4747-9377-8cd54ae19104.jpg",
+            "sig": "rdfqc0"
+          }
+        },
+        {
+          "seq": 40,
+          "speaker": "사회자",
+          "segment_no": 5,
+          "emotion": "serious",
+          "text": "[somber] 최일선에서 해상 안보와 치안을 챙기던 지휘관의 갑작스러운 비보에 안타까운 마음을 금할 수 없습니다. 삼가 고인의 명복을 빕니다. 다음 여섯 번째 소식입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "2182f3e5-9777-42c8-96a9-25742f1729fb.jpg",
+            "sig": "1jr0rww"
+          }
+        },
+        {
+          "seq": 41,
+          "speaker": "사회자",
+          "segment_no": 6,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 법원 소식입니다. 윤석열 전 대통령의 공직선거법 위반 사건 항소심 재판 일정이 다소 늦춰졌습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "136edcb7-2435-4f21-9c6b-f743a224f3e1.jpg",
+            "sig": "29blc2"
+          }
+        },
+        {
+          "seq": 42,
+          "speaker": "해설가",
+          "segment_no": 6,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 2026년 9월 29일 서울고법 형사2-1부는 윤석열 전 대통령의 공직선거법 위반 항소심 결심 공판을 진행하려 했으나, 증인신문 장기화와 증거 조사로 인해 결심 절차를 10월 13일로 연기했습니다.",
+          "fact_ids": [
+            "f10"
+          ],
+          "scene": {
+            "assetId": "6240c8a7-964f-4140-b36e-12a0d4f62f3e.jpg",
+            "sig": "2kb9o2"
+          }
+        },
+        {
+          "seq": 43,
+          "speaker": "해설가",
+          "segment_no": 6,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 윤 전 대통령은 이 사건 1심에서 징역 1년 6개월에 집행유예 3년을 선고받은 바 있습니다. 오늘 재판부에서는 백승엽, 황승태, 김영현 판사가 심리를 진행했고 윤대진 전 검사장 등에 대한 증인신문이 이어졌습니다.",
+          "fact_ids": [
+            "f10",
+            "f11"
+          ],
+          "scene": {
+            "assetId": "672e9b0f-e7e8-4b1a-87fe-cce907915e69.jpg",
+            "sig": "1k1ipa6"
+          }
+        },
+        {
+          "seq": 44,
+          "speaker": "패널",
+          "segment_no": 6,
+          "emotion": "curious",
+          "text": "[curious] 전직 대통령 개인의 재판 결과이기도 하지만, 정당 차원에서도 이 판결 결과에 사활이 걸려 있다는 말이 나오던데 어떤 이유 때문인가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "bb641469-3bcb-4507-8689-f448cd9f4018.jpg",
+            "sig": "s8sk2d"
+          }
+        },
+        {
+          "seq": 45,
+          "speaker": "해설가",
+          "segment_no": 6,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 막대한 국고 반환 문제가 걸려 있습니다. 공직선거법상 후보자가 당선무효형을 확정받으면 소속 정당은 국가로부터 보전받은 선거비용 전액을 반환해야 합니다. [emphasized] 만약 최종 유죄가 확정될 경우 국민의힘은 대선 선거 보전액 약 397억 원을 국고에 반납해야 하는 상황입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "e209866f-d225-4a12-804f-0d5d2b15f27b.jpg",
+            "sig": "1o9lgd3"
+          }
+        },
+        {
+          "seq": 46,
+          "speaker": "사회자",
+          "segment_no": 6,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 다가오는 10월 13일 속행 공판에서 양측의 최종 변론과 검찰 구형이 이뤄질지 주목됩니다. 일곱 번째 소식으로 넘어갑니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "3c813c73-c961-4fef-8b23-555c64ec4390.jpg",
+            "sig": "eljonr"
+          }
+        },
+        {
+          "seq": 47,
+          "speaker": "사회자",
+          "segment_no": 7,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 인공지능 발전을 둘러싼 글로벌 공방입니다. 레오 14세 교황이 인공지능 위험론을 옹호하며 도널드 트럼프 미국 대통령의 주장에 정면 반박했습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "53a712d3-ab24-45a5-be5a-725589306978.jpg",
+            "sig": "1nui6of"
+          }
+        },
+        {
+          "seq": 48,
+          "speaker": "해설가",
+          "segment_no": 7,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 2026년 9월 28일 프랑스 방문 일정을 마치고 귀국하던 레오 14세 교황은 전용기 기내 기자회견을 열었습니다. [thoughtful] 교황은 인공지능이 가져올 위험에 대한 인류의 우려는 결코 특정 집단의 사익을 위한 가짜뉴스가 아니라고 분명히 선을 그었습니다.",
+          "fact_ids": [
+            "f12"
+          ],
+          "scene": {
+            "assetId": "e4b4e817-a5ac-4f1c-aaa3-26cf464a2cf1.jpg",
+            "sig": "13h4yua"
+          }
+        },
+        {
+          "seq": 49,
+          "speaker": "해설가",
+          "segment_no": 7,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 이는 최근 도널드 트럼프 미국 대통령이 인공지능 인류 위협론을 사기이자 경쟁국의 음모라고 규정하며 전면적인 규제 철폐를 주장한 입장을 직접 반박한 셈입니다.",
+          "fact_ids": [
+            "f13"
+          ],
+          "scene": {
+            "assetId": "b242cd83-1503-4b94-ad74-bcd1a9f77296.jpg",
+            "sig": "1d6kpyc"
+          }
+        },
+        {
+          "seq": 50,
+          "speaker": "패널",
+          "segment_no": 7,
+          "emotion": "curious",
+          "text": "[curious] 종교 지도자인 교황이 첨단 기술 정책에 대해 이렇게 기내에서까지 직접 목소리를 낸 건 꽤 이례적인 모습 아닌가요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "ad1e3e9e-24b3-4c98-ba64-5f4b2bfbc604.jpg",
+            "sig": "hagnyu"
+          }
+        },
+        {
+          "seq": 51,
+          "speaker": "해설가",
+          "segment_no": 7,
+          "emotion": "calm",
+          "text": "[thoughtful] 바티칸의 기조는 일관되어 왔습니다. 바티칸 교황청은 이미 지난 5월 교황 회칙을 공식 발표했습니다. 인공지능이 인간의 통제를 벗어나지 않도록 국제적인 규제 기준을 마련하고 개발 속도를 조절해야 한다고 공식 요구한 바 있습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "a2036882-3ed7-4812-9838-5788d9a8de8e.jpg",
+            "sig": "1mbqqfs"
+          }
+        },
+        {
+          "seq": 52,
+          "speaker": "패널",
+          "segment_no": 7,
+          "emotion": "thinking",
+          "text": "[hmm] 기술 패권 경쟁을 위해 규제를 풀자는 트럼프 대통령과 윤리적 통제를 강조하는 교황청의 시각 차이가 선명하게 드러나는군요.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "92c1c6f9-5e18-450f-8838-7215ccb620e9.jpg",
+            "sig": "bz2ghg"
+          }
+        },
+        {
+          "seq": 53,
+          "speaker": "사회자",
+          "segment_no": 7,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 미래 기술 거버넌스를 둘러싼 국제 사회의 논쟁은 더 뜨거워질 것 같습니다. 여덟 번째 소식 살펴보겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "02f67b90-47b5-407b-8821-56d676999c6c.jpg",
+            "sig": "k2p3ka"
+          }
+        },
+        {
+          "seq": 54,
+          "speaker": "사회자",
+          "segment_no": 8,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 인공지능에 이어 제조업 자동화 소식입니다. 전 세계 공장에서 가동 중인 산업용 로봇이 마침내 500만 대를 돌파했습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "e3f0ef52-58ba-4163-b2c2-918d10d0ddcf.jpg",
+            "sig": "lxa63b"
+          }
+        },
+        {
+          "seq": 55,
+          "speaker": "해설가",
+          "segment_no": 8,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 2026년 9월 27일 국제로봇연맹 제인 헤프너 회장이 발표한 보고서 내용인데요. 2025년 기준 전 세계 공장에서 운용 중인 산업용 로봇 재고는 전년 대비 9퍼센트 증가하며 500만 대를 넘어섰습니다.",
+          "fact_ids": [
+            "f14"
+          ],
+          "scene": {
+            "assetId": "e3bb49c4-39c9-4602-817f-045443d99a94.jpg",
+            "sig": "14lxqvv"
+          }
+        },
+        {
+          "seq": 56,
+          "speaker": "해설가",
+          "segment_no": 8,
+          "emotion": "calm",
+          "text": "[emphasized] 지난해 새로 도입된 로봇만 60만 대 이상입니다. 특히 중국의 약진이 두드러지는데, 전년 대비 20퍼센트 늘어난 35만 4천 대를 설치하며 전 세계 신규 로봇의 무려 59퍼센트를 혼자 차지했습니다.",
+          "fact_ids": [
+            "f15"
+          ],
+          "scene": {
+            "assetId": "a19a1b3d-3e9f-4e0e-82e6-c9c55cc2e15c.jpg",
+            "sig": "1bnmq2a"
+          }
+        },
+        {
+          "seq": 57,
+          "speaker": "패널",
+          "segment_no": 8,
+          "emotion": "surprised",
+          "text": "[surprised] 500만 대라는 숫자도 엄청나지만, 전 세계 새로 깔린 로봇 10대 중 6대가 중국 공장으로 들어갔다는 사실이 더 놀랍네요!",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "fad0b021-95e5-4550-aa28-5312b186fd48.jpg",
+            "sig": "16i8j71"
+          }
+        },
+        {
+          "seq": 58,
+          "speaker": "해설가",
+          "segment_no": 8,
+          "emotion": "thinking",
+          "text": "[matter-of-fact] 여기서 흥미로운 사실은 운용 로봇 500만 대라는 규모가 불과 7년 전과 비교했을 때 2배를 웃도는 수치라는 점입니다. [thoughtful] 전 세계 제조 현장의 무인화와 스마트 공장 전환 속도가 그만큼 가파르게 진행되고 있음을 보여줍니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "95635417-0add-4783-81b0-1b0a9a964b83.jpg",
+            "sig": "14ly7xo"
+          }
+        },
+        {
+          "seq": 59,
+          "speaker": "패널",
+          "segment_no": 8,
+          "emotion": "thinking",
+          "text": "[hmm] 사람 일자리에 미칠 영향이나 제조업 경쟁력 지형 변화도 눈여겨봐야 할 대목이겠습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "daab515a-d602-4886-9b11-f1fab992cb89.jpg",
+            "sig": "1peuo70"
+          }
+        },
+        {
+          "seq": 60,
+          "speaker": "사회자",
+          "segment_no": 8,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 자동화의 파고가 어디까지 번질지 주목됩니다. 이어서 아홉 번째 소식입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "e9f3101e-c370-4acd-8a86-4b88ffb84826.jpg",
+            "sig": "1a6srug"
+          }
+        },
+        {
+          "seq": 61,
+          "speaker": "사회자",
+          "segment_no": 9,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 쇼츠 영상 잘자요 아가씨로 큰 인기를 누렸던 크리에이터 닛몰캐쉬가 데이트 폭력 의혹을 인정하고 활동 중단을 선언했습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "fde9c863-753a-4faf-86cc-3bd40b23a818.jpg",
+            "sig": "qtvcsz"
+          }
+        },
+        {
+          "seq": 62,
+          "speaker": "해설가",
+          "segment_no": 9,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 2026년 9월 29일 소속사 NOB엔터테인먼트는 본명 차청일, 29세인 닛몰캐쉬의 데이트 폭력과 폭언 의혹을 공식 인정했습니다. [somber] 소속사는 피해자에게 고개 숙여 사과하며 닛몰캐쉬의 모든 대외 활동을 전면 중단하겠다고 밝혔습니다.",
+          "fact_ids": [
+            "f16"
+          ],
+          "scene": {
+            "assetId": "839ed42f-4ac2-42b9-b157-be5b6fe360c1.jpg",
+            "sig": "1gjow0e"
+          }
+        },
+        {
+          "seq": 63,
+          "speaker": "해설가",
+          "segment_no": 9,
+          "emotion": "serious",
+          "text": "[matter-of-fact] 닛몰캐쉬는 개인 소셜미디어 계정을 삭제하고 구독자 55만 명 규모의 유튜브 채널을 비공개로 전환했습니다. [somber] 또한 주연으로 참여했던 2억 8천만 원 예산의 경기도의회 웹드라마 시사회도 전격 취소됐습니다.",
+          "fact_ids": [
+            "f17"
+          ],
+          "scene": {
+            "assetId": "e917e27d-2191-42d9-beae-e44639d977ba.jpg",
+            "sig": "410gdx"
+          }
+        },
+        {
+          "seq": 64,
+          "speaker": "패널",
+          "segment_no": 9,
+          "emotion": "surprised",
+          "text": "[surprised] 지자체 웹드라마 시사회까지 취소될 정도면 파장이 정말 크네요. 닛몰캐쉬가 본래 어떤 배경을 가진 인물이었나요?",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "3ecce4fb-33a2-4680-a3d1-1bec73292f87.jpg",
+            "sig": "1chv9t4"
+          }
+        },
+        {
+          "seq": 65,
+          "speaker": "해설가",
+          "segment_no": 9,
+          "emotion": "calm",
+          "text": "[thoughtful] 많은 분들이 잘 모르셨겠지만, 닛몰캐쉬는 원래 방탄소년단 백댄서 출신이었습니다. 이후 숏폼 영상 잘자요 아가씨가 크게 유행하고 넷플릭스 예능 더 인플루언서 등에 출연하며 주류 방송계까지 활동 반경을 넓혀가던 중이었습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "5be26525-adc2-4d02-880f-51a04e867d2e.jpg",
+            "sig": "xewccr"
+          }
+        },
+        {
+          "seq": 66,
+          "speaker": "패널",
+          "segment_no": 9,
+          "emotion": "serious",
+          "text": "[serious] 대중의 사랑을 받던 인플루언서인 만큼 이번 사안에 대한 사회적 실망감도 매우 커 보입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "efdef4f2-fbac-4935-b504-f88416b6d84d.jpg",
+            "sig": "87fgkh"
+          }
+        },
+        {
+          "seq": 67,
+          "speaker": "사회자",
+          "segment_no": 9,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 공인으로서의 책임감을 다시금 되새기게 합니다. 마지막 열 번째 소식은 통쾌한 승전보입니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "e2beac24-8504-4ae2-853f-0711dcbd67ad.jpg",
+            "sig": "uuvf0i"
+          }
+        },
+        {
+          "seq": 68,
+          "speaker": "사회자",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[excited] 배드민턴 여자 복식 이소희, 백하나 조가 만리장성을 넘어 24년 만에 아시안게임 금메달을 목에 걸었습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "2bcef47a-4758-494a-b2ec-320a524ce8a5.jpg",
+            "sig": "zcg16i"
+          }
+        },
+        {
+          "seq": 69,
+          "speaker": "해설가",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[cheerfully] 2026년 9월 29일 일본에서 열린 아이치·나고야 아시안게임 배드민턴 여자 복식 결승전 소식입니다. 세계랭킹 2위 인천국제공항 소속 이소희-백하나 조가 세계 1위인 중국의 류성수-탄닝 조를 접전 끝에 세트스코어 2-1로 꺾었습니다.",
+          "fact_ids": [
+            "f18"
+          ],
+          "scene": {
+            "assetId": "33873664-2712-4c31-9f01-a30eec93c7c7.jpg",
+            "sig": "1tsg24t"
+          }
+        },
+        {
+          "seq": 70,
+          "speaker": "해설가",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[excited] 무려 1시간 46분에 달하는 치열한 혈투였습니다. 끝까지 집중력을 잃지 않고 셔틀콕을 받아내며 값진 승리를 일궈냈습니다.",
+          "fact_ids": [
+            "f18"
+          ],
+          "scene": {
+            "assetId": "d2718f46-c472-4c36-8a2f-325c894aa2ac.jpg",
+            "sig": "17ebfjq"
+          }
+        },
+        {
+          "seq": 71,
+          "speaker": "패널",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[playfully] 1시간 46분이면 거의 마라톤 수준의 체력전이었을 텐데요! 아시안게임 여자 복식에서 우리가 금메달을 딴 게 정말 오랜만이라고 들었습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "30b9859f-c205-4bfd-af0b-8f9de1f1eff7.jpg",
+            "sig": "1csuq1y"
+          }
+        },
+        {
+          "seq": 72,
+          "speaker": "해설가",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[warmly] 그렇습니다. 한국 배드민턴 여자 복식이 아시안게임 정상에 오른 것은 2002년 부산 대회 이후 무려 24년 만의 쾌거입니다. [excited] 게다가 이소희-백하나 조는 지난 8월 세계선수권대회 제패에 이어 이번 아시안게임까지 연달아 석권하며 세계 최강임을 확고히 입증했습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "c502bb38-2e56-4577-b869-f8477c0f046e.jpg",
+            "sig": "1vhu6jm"
+          }
+        },
+        {
+          "seq": 73,
+          "speaker": "패널",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[cheerfully] 세계선수권에 이어 아시안게임까지, 태극낭자들의 투혼에 아침부터 가슴이 웅장해집니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "127dd9f1-cc41-4b6c-94a9-793c3b68189f.jpg",
+            "sig": "cxkb4l"
+          }
+        },
+        {
+          "seq": 74,
+          "speaker": "사회자",
+          "segment_no": 10,
+          "emotion": "bright",
+          "text": "[warmly] 국민들에게 큰 기쁨과 자긍심을 안겨준 두 선수에게 뜨거운 박수를 보냅니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "16a2d1f0-60fa-42e1-9253-25be33adc493.jpg",
+            "sig": "67l9tx"
+          }
+        },
+        {
+          "seq": 75,
+          "speaker": "사회자",
+          "segment_no": 99,
+          "emotion": "calm",
+          "text": "[matter-of-fact] 오늘 뉴스 브리핑에서는 비무장지대 지뢰 발견부터 상어 부캉이 소식, 그리고 배드민턴 금메달까지 10가지 주요 현안을 두루 짚어봤습니다. 두 분 오늘 수고 많으셨습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "6b4db5b5-6968-4419-bbe4-3dabc324824d.jpg",
+            "sig": "14thfuw"
+          }
+        },
+        {
+          "seq": 76,
+          "speaker": "해설가",
+          "segment_no": 99,
+          "emotion": "bright",
+          "text": "[warmly] 안보와 경제, 법조 이슈부터 스포츠 소식까지 균형 있게 돌아볼 수 있는 뜻깊은 시간이었습니다. 청취자 여러분도 활기찬 하루 보내시길 바랍니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "79a57b33-ba7b-4fb0-9845-71face850813.jpg",
+            "sig": "po6owh"
+          }
+        },
+        {
+          "seq": 77,
+          "speaker": "패널",
+          "segment_no": 99,
+          "emotion": "bright",
+          "text": "[playfully] 궁금한 뉴스 속사정을 쉽고 명쾌하게 파헤칠 수 있어서 저도 즐거웠습니다. 내일도 알찬 질문 한 보따리 들고 찾아오겠습니다!",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "155cbeef-47cb-4a8f-a8de-3200eda112ae.jpg",
+            "sig": "1hoin2j"
+          }
+        },
+        {
+          "seq": 78,
+          "speaker": "사회자",
+          "segment_no": 99,
+          "emotion": "bright",
+          "text": "[cheerfully] 뉴스 브리핑 오늘은 여기서 인사드립니다. 저희는 내일 아침 더욱 알차고 생생한 소식으로 다시 찾아뵙겠습니다. 청취해 주신 여러분, 고맙습니다.",
+          "fact_ids": [],
+          "scene": {
+            "assetId": "fff8d32f-1542-4ddf-ae7e-2f69d475a329.jpg",
+            "sig": "ili625"
+          }
+        }
+      ]
+    },
+    "flags": [],
+    "modelId": "eleven_v4_turbo",
+    "thumbnail": {
+      "assetId": "419600b7-c545-4192-8926-5518d6fcc7fb.jpg",
+      "title": "DMZ 북한 지뢰와 200억 카르텔",
+      "subtitle": "9월 29일 꼭 봐야 할 뉴스 10가지"
+    },
+    "youtube": {
+      "summary": [
+        "서부전선 DMZ 지뢰 폭발 현장서 북한군 지뢰 추가 발견, 군 상응 조치",
+        "서울대 동아리 출신 금융사 임원 200억 원대 미공개 정보 카르텔 적발",
+        "온누리상품권 362억 마운자로 쏠림 논란부터 윤석열 2심 연기까지"
+      ],
+      "hashtagsTop": [
+        "#뉴스",
+        "#DMZ지뢰",
+        "#정보카르텔"
+      ],
+      "hashtagsMore": [
+        "#북한지뢰",
+        "#미공개정보",
+        "#온누리상품권",
+        "#마운자로",
+        "#윤석열",
+        "#인천해경",
+        "#닛몰캐쉬",
+        "#배드민턴",
+        "#사회뉴스",
+        "#경제뉴스",
+        "#뉴스브리핑오늘"
+      ],
+      "hashtagStrategy": "제목 위 노출되는 3개 해시태그는 대형 트래픽을 유입시키는 일반 키워드 1개와 당일 최고 화제성 꼭지 키워드 2개를 전략적으로 배치했습니다. 설명란 하단에는 11개의 세부 꼭지, 분야, 브랜드 해시태그를 추가해 전체 14개로 구성했습니다. 유튜브 정책상 해시태그가 15개를 초과하면 무효 처리되므로 15개 이하 기준을 철저히 준수했습니다.",
+      "tags": {
+        "core": [
+          "DMZ 지뢰",
+          "북한군 지뢰",
+          "미공개 정보 200억",
+          "서울대 경영동아리",
+          "온누리상품권 마운자로",
+          "윤석열 공직선거법",
+          "인천해양경찰서장",
+          "닛몰캐쉬"
+        ],
+        "entities": [
+          "강신철",
+          "황선오",
+          "윤석열",
+          "김원이",
+          "양종타",
+          "차청일",
+          "이소희",
+          "백하나",
+          "국방부",
+          "인천해양경찰서"
+        ],
+        "broad": [
+          "오늘의 뉴스",
+          "뉴스 브리핑",
+          "실시간 뉴스",
+          "주요 뉴스",
+          "시사 이슈"
+        ],
+        "longtail": [
+          "9월 29일 주요 뉴스",
+          "DMZ 북한 지뢰 발견",
+          "서울대 동아리 200억 카르텔",
+          "온누리상품권 362억 마운자로 성지",
+          "윤석열 2심 결심 공판 연기",
+          "배드민턴 복식 아시안게임 금메달"
+        ],
+        "brand": [
+          "뉴스 브리핑 오늘",
+          "뉴스브리핑오늘",
+          "뉴스브리핑"
+        ]
+      },
+      "tagStrategy": "유튜브 알고리즘은 앞쪽에 배치된 태그를 영상 주제 분석에 더 강력하게 반영하므로 core와 주요 entities를 최우선으로 배치해야 합니다. 이어서 롱테일 검색어, 대형 브로드 키워드, 채널 브랜드 순으로 채워 검색 노출 범위를 넓힙니다. 500자 글자 수 한도를 효율적으로 사용하기 위해 띄어쓰기 유무 등 실제 유저의 다양한 검색 패턴을 골고루 분배했습니다.",
+      "altTitles": [
+        "DMZ 북 지뢰와 200억 카르텔",
+        "DMZ 긴장 속 200억 금융 범죄",
+        "DMZ 북 지뢰 도발과 미공개 정보"
+      ]
+    }
+  }
+}
