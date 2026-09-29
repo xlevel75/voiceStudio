@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { errorResponse } from "@/lib/api";
+import { deleteBlobs } from "@/lib/blob";
 import { getStore, recordToVoice, type VoiceRecord } from "@/lib/db";
 import { getProvider, isProviderId } from "@/lib/providers";
 import { ProviderError, type CloneMode, type Voice } from "@/lib/providers/types";
@@ -98,7 +99,14 @@ export async function POST(request: Request) {
       throw new ProviderError("오디오 파일을 최소 1개 업로드해주세요.", 400);
     }
 
-    const created = await provider.createVoice({ name, mode, audioUrls, consent: true });
+    let created: Voice;
+    try {
+      created = await provider.createVoice({ name, mode, audioUrls, consent: true });
+    } finally {
+      // 공급자가 샘플을 자기 쪽으로 복사한 뒤로는 Blob에 남길 이유가 없다.
+      // 실패해도 이 파일들은 재사용되지 않으므로 함께 정리한다.
+      await deleteBlobs(audioUrls);
+    }
 
     const record: VoiceRecord = {
       id: randomUUID(),

@@ -1,4 +1,4 @@
-import { get } from "@vercel/blob";
+import { del, get } from "@vercel/blob";
 import { ProviderError } from "@/lib/providers/types";
 
 export type BlobAccess = "public" | "private";
@@ -64,4 +64,23 @@ export async function readBlobAsUpload(url: string): Promise<BlobUpload> {
     contentType: data.type || "audio/mpeg",
     contentLength: data.size,
   };
+}
+
+/**
+ * 업로드된 샘플을 Blob에서 지운다.
+ *
+ * 공급자가 createVoice 시점에 샘플 사본을 자기 쪽으로 가져가므로
+ * 그 뒤로는 아무도 이 blob을 참조하지 않는다(DB에도 URL을 남기지 않는다).
+ * 남겨두면 스토리지 사용량만 단조증가하므로 성공·실패 모두 정리한다.
+ *
+ * 삭제 실패가 이미 만들어진 성우를 되돌릴 이유는 없으므로 조용히 넘기고
+ * 수동 정리를 위해 URL만 로그에 남긴다.
+ */
+export async function deleteBlobs(urls: string[]): Promise<void> {
+  if (urls.length === 0) return;
+  try {
+    await del(urls);
+  } catch (err) {
+    console.error("[blob] 업로드 샘플 정리 실패 (수동 삭제 필요)", urls, err);
+  }
 }
