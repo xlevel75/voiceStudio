@@ -35,6 +35,9 @@ next-env.d.ts
 # 로컬 JSON 폴백 스토어 (DATABASE_URL 미설정 시 생성)
 /data/*.json
 
+# 뉴스 팟캐스트 주제 저장 파일 (개인 작업물)
+/data/podcasts/
+
 # 로그
 npm-debug.log*
 yarn-debug.log*

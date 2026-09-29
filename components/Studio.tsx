@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { BlobAccess } from "@/lib/blob";
@@ -148,6 +149,13 @@ export function Studio({ blobAccess }: { blobAccess: BlobAccess }) {
             내 목소리로 성우를 만들고, 텍스트를 음성으로 변환합니다.
           </p>
         </div>
+
+        <Link
+          href="/podcast"
+          className="ml-auto rounded-lg border border-accent-500/40 bg-accent-500/10 px-3 py-2 text-xs font-medium text-accent-300 transition hover:bg-accent-500/20"
+        >
+          뉴스 팟캐스트 생성기 →
+        </Link>
 
         {/* 최상위 공급자 탭 */}
         <div

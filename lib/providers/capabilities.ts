@@ -11,8 +11,10 @@ export const ELEVENLABS_CAPABILITIES: Capabilities = {
   canDownload: true,
   maxTextLength: 5000,
   models: [
+    { id: "eleven_v4", label: "v4 (최고 품질·오디오 태그)" },
+    { id: "eleven_v4_turbo", label: "v4 Turbo (빠름·오디오 태그)" },
     { id: "eleven_multilingual_v2", label: "다국어 v2 (한국어 안정)" },
-    { id: "eleven_v3", label: "v3 (표현력 최고)" },
+    { id: "eleven_v3", label: "v3 (오디오 태그)" },
     { id: "eleven_flash_v2_5", label: "Flash v2.5 (저지연)" },
   ],
 };
